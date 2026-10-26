@@ -1,0 +1,1591 @@
+================================================================================
+          FRESHCHAIN: AI-POWERED COLD-CHAIN LOGISTICS PLATFORM
+                 COMPLETE PROJECT MANUAL & ARCHITECTURE GUIDE
+================================================================================
+Date: October 2026
+Version: 2.2.0 (Autonomous Cold-Chain Command & Machine Learning Intelligence Center)
+Target File: FRESHCHAIN_COMPLETE_PROJECT_GUIDE.txt
+Repository: freshchain-react
+Operating Environment: Windows / Node.js 18+ / Python 3.10+ (FastAPI + React Vite)
+================================================================================
+
+TABLE OF CONTENTS
+--------------------------------------------------------------------------------
+ 1. EXECUTIVE SUMMARY & VALUE PROPOSITION
+ 2. COMPLETE TECHNOLOGY STACK & ARCHITECTURE
+ 3. DETAILED BREAKDOWN OF THE LANDING PAGE (EVERY SECTION EXPLAINED)
+ 4. COMPLETE BREAKDOWN OF ALL OTHER PAGES & MODULES
+    4.1. Command Portal Login Page (#login)
+    4.2. Live Demo: Mission Control (#demo)
+    4.3. Transport Mode Command Pages (#truck, #train, #ocean, #air)
+    4.4. Driver Cockpit & Silent Haptic Portal (#driver-portal)
+    4.5. Executive Command Center / Admin Overview (#command-center)
+    4.6. Service Pages & 3D Interactive Trackers (#road-freight, etc.)
+    4.7. Enterprise Pilot Trial Booking (#pilot)
+    4.8. Cold Chain Memory Book Dossier (MemoryBookModal)
+    4.9. LivingMap Real-Time Corridor Tracking Engine
+    4.10. Farmer Protection Portal & Guaranteed Escrow (#farmer-portal)
+    4.11. Warehouse Manager Portal & Multi-Zone Cold Vaults (#warehouse-manager)
+    4.12. Centralized Multi-Role Leave Management Portal (#leave-management)
+    4.13. Driver Roadside Breakdown Assistance SOS (#breakdown)
+    4.14. Sustainability Impact Dashboard & Certified ESG PDF Generator (#impact)
+ 5. HOW TO USE THIS WEBSITE: STEP-BY-STEP USER JOURNEYS
+    5.1. Journey for a First-Time Visitor & Evaluator
+    5.2. Journey for a Fleet Manager / Dispatcher
+    5.3. Journey for a Reefer Driver / Pilot
+    5.4. Journey for an Executive / Super Admin
+    5.5. Journey for a Commercial Shipper Tracking Cargo
+    5.6. Journey for an Enterprise Client Requesting a Pilot
+    5.7. Journey for a Smallholder Farmer Tracking Produce & Guaranteed Escrow
+    5.8. Journey for a Cold Storage Warehouse Manager
+    5.9. Journey for Personnel Submitting and Approving Leaves
+ 6. AUTONOMOUS & AI SYSTEMS DEEP-DIVE
+    6.1. Thermodynamic Physics Simulation Engine
+    6.2. Multi-Party Liability Docketing Algorithm
+    6.3. Offline-First Sensor & Check-in Synchronization
+    6.4. Bilingual Conversational AI Assistant (English & Hindi)
+    6.5. COMPREHENSIVE MACHINE LEARNING & PREDICTIVE MODELS SPECIFICATION
+         6.5.1. Model 1: Predictive Temperature Guardian (Thermal Slope & Breach Horizon)
+         6.5.2. Model 2: Thermodynamic Newton Cooling/Warming & Autonomous Thermal Defense
+         6.5.3. Model 3: Cold Chain Soul Score Engine (Multi-Factor Ethical Quality Index)
+         6.5.4. Model 4: Automated Multi-Party Liability Arbitration Model (HACCP/ISO Fault Allocation)
+         6.5.5. Model 5: Bilingual RAG Conversational AI Assistant (Groq/OpenAI LLM + Schema RAG)
+         6.5.6. Model 6: Freight Carbon Footprint & Decarbonization Predictor (GHG Protocol & GLEC)
+         6.5.7. Master Matrix: Summary of All ML/AI Models, Data Used, Inputs & Outputs
+ 7. BACKEND API, DATABASE & SEEDED CREDENTIALS
+    7.1. Default Login Credentials (All Roles)
+    7.2. Database Models & Schema Relationships
+    7.3. Complete REST API Endpoints Catalog
+ 8. HOW TO RUN, TEST, AND DEPLOY LOCALLY
+ 9. COMPLETE PROJECT FILE TREE & CODE ROSTER
+10. CHANGELOG & RECENT SYSTEM UPGRADES (VERSION 2.0.0 TO 2.2.0)
+================================================================================
+
+
+
+================================================================================
+1. EXECUTIVE SUMMARY & VALUE PROPOSITION
+================================================================================
+FreshChain is a next-generation, autonomous, self-correcting cold-chain logistics
+and dispute resolution platform. It combines real-time IoT telematics, predictive
+thermal physics, 3D WebGL digital twins, multi-modal fleet coordination, and
+tamper-evident automated liability docketing.
+
+THE CORE PROBLEM:
+- Over 30% of perishable agricultural produce, dairy, vaccines, and biopharmaceuticals
+  spoil before reaching consumers in emerging markets.
+- In India alone, cold chain breakage inflicts an estimated annual economic loss of
+  over ₹1.5+ lakh crore ($18+ Billion USD).
+- When a temperature breach occurs, settling insurance and commercial liability claims
+  typically takes 6 to 9 months of litigious disputes between farmers, transporters,
+  cold storage operators, and retailers because historical paper logs are easily
+  falsified or lost.
+- Smallholder farmers bear the brunt of this failure, frequently losing entire harvests
+  and enduring delayed or denied payments.
+
+FRESHCHAIN'S SOLUTION:
+1. Multi-Modal Telematics: Unifies Road (Reefers), Rail (Intermodal Rakes),
+   Ocean (Controlled Atmosphere Containers), Air Cargo (Vaccine Flights),
+   Warehousing (Multi-temp Pallet Racks), and Customs Clearances.
+2. Predictive Thermal Physics: Monitors sensor rate-of-change degradation slopes.
+   Forecasts compressor and insulation failures up to 45 minutes before a temperature
+   breach occurs (prior to crossing the critical 8 °C threshold).
+3. Autonomous Cargo Thermal Maintenance: Automatically detects degradation and engages
+   onboard active cargo cooling to maintain temperature setpoint without external diversion.
+4. Instant Multi-Party Liability Docketing: Automatically computes fault apportionment
+   using verified telemetry and legally binding audit reasoning (Transporter 70%,
+   Cold Store 20%, Retailer 10%, Farmer guaranteed 0%), releasing insurance and
+   farmer payments in days instead of months.
+5. Offline-First Ingestion: Ensures drivers in remote rural corridors with zero cellular
+   reception can log tamper-evident check-ins that queue locally and sync with original
+   hardware timestamps upon reconnection.
+6. Cold Chain Memory Book: Generates consumer-facing commemorative certificates and
+   "Soul Scores" (0-100) celebrating the grower, driver, and unbroken chain of custody.
+
+
+================================================================================
+2. COMPLETE TECHNOLOGY STACK & ARCHITECTURE
+================================================================================
+The FreshChain repository is engineered as a decoupled modern full-stack application:
+
+FRONTEND ARCHITECTURE:
+- Framework: React 18.2 with Vite 5.x build tool (ultra-fast HMR and bundling).
+- 3D Digital Twin Engine: Three.js (pinned to 0.128.0) rendering high-performance
+  isometric 3D worlds, animated vehicles, cutaway X-ray views, temperature badges,
+  and interactive pallet racks without heavy external asset loading.
+- Styling & Theming: Pure Vanilla CSS (index.css) utilizing modern CSS variables,
+  system color tokens, dark/light mode detection via prefers-color-scheme, responsive
+  flex/grid layouts, glassmorphic cards, and hardware-accelerated SVG transforms.
+- State Management: Lightweight reactive stores using React's useSyncExternalStore
+  and custom pub/sub patterns for low-latency telemetry updates (fleetStore.js,
+  alertStore.js, useFleet hook).
+- Navigation: Client-side URL hash routing (#login, #demo, #truck-transport,
+  #train-transport, #ocean-transport, #air-transport, #driver-portal, #command-center,
+  #road-freight, #rail, #air-cargo, #ocean-freight, #warehousing, #customs, #pilot).
+- Visual Animations: Hardware-accelerated SVG animations, scroll-driven wheel rotation,
+  and coordinate-projected "Living Fleet Breathing" radar pulses on living maps.
+
+BACKEND ARCHITECTURE:
+- Framework: FastAPI (Python 3.10+) running asynchronously on Uvicorn.
+- Database: SQLite (freshchain.db) managed via SQLAlchemy 2.0 Declarative ORM.
+- Migrations: Alembic database migration management.
+- Validation: Pydantic v2 schemas providing strict input/output request validation.
+- Security & Authentication: OAuth2 with Password Grant, JWT (JSON Web Tokens) with
+  access & refresh token pairs, password hashing using bcrypt.
+- Real-Time Communication: Native WebSockets (/api/ws) broadcasting autonomous 4-second
+  simulation ticks across connected clients.
+- Autonomous Background Worker: Asyncio lifecycle task continuously running thermal
+  physics simulation, temperature setpoint drift, and failure progressions.
+- AI Gateway: Native endpoint (/api/chat) executing contextual logistics heuristics
+  with fallback to OpenAI GPT models for bilingual (English & Hindi) conversations.
+
+
+================================================================================
+3. DETAILED BREAKDOWN OF THE LANDING PAGE (EVERY SECTION EXPLAINED)
+================================================================================
+When you open http://localhost:5173/ with no hash (or #top / #home), you arrive
+at the comprehensive FreshChain Landing Page. Here is a breakdown of every single
+section from top to bottom:
+
+--------------------------------------------------------------------------------
+3.1. Top Navigation Bar (Header.jsx)
+--------------------------------------------------------------------------------
+- Brand Logo: "FreshChain" with custom typography (links to #top).
+- Navigation Links:
+  1. 🚚 Road -> Navigates to the Road Reefer Command Dashboard (#truck-transport).
+  2. 🚆 Rail -> Navigates to the Intermodal Rail Freight Dashboard (#train-transport).
+  3. 🚢 Ocean -> Navigates to Deep-Sea Reefer Operations (#ocean-transport).
+  4. ✈️ Air Cargo -> Navigates to International Air Cargo (#air-transport).
+  5. 📊 Admin Panel -> Navigates to the Executive Command Center (#command-center).
+  6. 👥 Fleets & People -> Smooth-scrolls to the frontline heroes section (#about).
+- Right-Side Authentication State:
+  - If NOT logged in: Shows "🔑 Role Login" (links to #login) and "Request Pilot"
+    (links to #pilot).
+  - If LOGGED IN: Displays a live green status dot, the authenticated user's role
+    chip (e.g., "SUPER ADMIN", "TRUCK MANAGER", "DRIVER"), a quick-access link
+    to #command-center, and a "Sign Out" button.
+
+--------------------------------------------------------------------------------
+3.2. Isometric 3D Journey Hero (Hero.jsx & three/hero.js)
+--------------------------------------------------------------------------------
+- Interactive WebGL Canvas: An isometric 3D miniature world built from ground up
+  in Three.js, rendering custom geometries for farm fields, warehouses, cold stores,
+  highways, rail tracks, ships, cargo planes, distribution centers, and retail stores.
+- 9 Auto-Cycling Station Tabs:
+  The camera smoothly pans, tilts, and zooms across 9 critical stages every 6 seconds:
+  1. Farm: Fields with rows of crops, tractor, and pre-cooling gatehouse.
+  2. Warehouse: Automated high-bay pallet racking and forklift operations.
+  3. Cold Storage: Controlled 2–8 °C refrigeration rooms with continuous monitoring.
+  4. Road: Reefer trucks traversing highway corridors.
+  5. Rail: High-capacity container rakes and gantry crane sidings.
+  6. Air & Sea: Multi-modal export container vessel and long-haul cargo aircraft.
+  7. Distribution: Regional cross-dock distribution center.
+  8. Retail: Hypermarket and pharmacy shelves where consumers purchase fresh food.
+  9. Office: Central logistics dispatch room with operators monitoring live screens.
+- Interactive Floating Hero Card:
+  - Headline: "Smarter supply chains. Fresher food. A stronger India."
+  - Dynamic Station Description: Updates live as the 3D scene rotates through stops.
+  - Action Buttons: "Try the Live Demo" (jumps to #demo) and "See the Problem" (jumps to #problem).
+- Manual Station Selector: Users can click any of the 9 tabs along the bottom to
+  instantly fly the 3D camera to that stage.
+
+--------------------------------------------------------------------------------
+3.3. The Cold-Chain Problem Section (Sections.jsx -> Problem)
+--------------------------------------------------------------------------------
+- Headline: "Over 30% of perishables spoil before they reach you."
+- Subtext: "Not because the food is bad at harvest, but because the cold chain breaks in transit."
+- 4 High-Impact Animated Count-Up Counters:
+  1. 30%+ : Proportion of all perishables spoiling before reaching commercial markets.
+  2. ₹1.5+ lakh crore : Estimated annual economic loss suffered in India alone.
+  3. 6+ months : Traditional duration required to settle multi-party liability disputes.
+  4. Farmers : Highlights how farmers lose income while vital medicines lose potency.
+
+--------------------------------------------------------------------------------
+3.4. Interactive 5-Step Handover Journey (Sections.jsx -> Journey)
+--------------------------------------------------------------------------------
+- Concept: The cold chain is only as strong as its handovers. This section breaks
+  down the 5 handoffs where temperature breaches happen most frequently:
+  - Tab 1: Farm Gate to Truck (Field heat must be removed; pre-cooling delays).
+  - Tab 2: Truck to Cold Store (Dock dwell times; unmonitored tarmac exposure).
+  - Tab 3: Cold Store to Intermodal Rail/Ocean (Transfer delays; power disconnections).
+  - Tab 4: Intermodal to Distribution Center (Transshipment handoffs; missing logs).
+  - Tab 5: Distribution Center to Retail Store (Last-mile traffic; door openings).
+- Interactive Comparison Panel:
+  Clicking any handover tab displays a side-by-side comparison:
+  - "Where it breaks": Traditional manual paper logs, undetected thawing, finger-pointing.
+  - "With FreshChain": Continuous IoT logging, tamper-evident digital sign-offs, and
+    immediate alarm triggers. Accessible via keyboard (Arrow keys, Home, End).
+
+--------------------------------------------------------------------------------
+3.5. Autonomous Solution Grid (Sections.jsx -> Solution)
+--------------------------------------------------------------------------------
+- 8 Feature Cards outlining FreshChain's technical capabilities:
+  1. 📡 IoT Sensor Integration: Continuous stream of temp, humidity, and location.
+  2. 🚨 Real-time Anomaly Alerts: Detects compressor degradation before a breach occurs.
+  3. ❄️ Autonomous Cargo Thermal Maintenance: Maintains temperature setpoints directly through onboard cargo thermal self-regulation without emergency diversion.
+  4. ⚖️ AI Dispute Resolution: Generates legally backed multi-party liability reports.
+  5. 📱 Driver Check-ins (Offline-first): Operates without cellular reception and syncs.
+  6. 📈 Spoilage Risk Prediction: Dynamic 0-100% risk score based on dwell time and slope.
+  7. 🗂️ Insurance-Ready Dockets: Tamper-evident incident logs prepared for insurers.
+  8. 🧑‍🌾 Faster Farmer Payments: Instant fault attribution releases escrow funds in days.
+
+--------------------------------------------------------------------------------
+3.6. Engineering Technology Pillars (Sections.jsx -> Tracks)
+--------------------------------------------------------------------------------
+- Displays the three production pillars powering FreshChain:
+  - Track 1: Predictive Physics & ML (Thermodynamic slope algorithms, rate-of-change
+    degradation detection, and spoilage risk scoring).
+  - Track 2: GenAI & Dispute Arbitration (Multi-party claim arbitration, automated
+    apportionment with legal justifications, insurance-ready incident packages).
+  - Track 3: Full-Stack Command Core (Multi-modal command console, automated corridor
+    rerouting, and offline-first tamper-evident check-ins).
+
+--------------------------------------------------------------------------------
+3.7. Scroll-Driven Flagship Reefer Truck (Sections.jsx -> FleetTruck)
+--------------------------------------------------------------------------------
+- Visual Physics Engine: An intricately designed vector SVG reefer truck carrying the
+  FreshChain branding.
+- Scroll-Driven Physics: As the visitor scrolls down the page, the truck smoothly
+  drives across the screen from left to right.
+- Rotating Wheel Physics: The wheels spin dynamically at an exact mathematical ratio
+  matching the vehicle's translational speed using custom CSS rotational properties.
+
+--------------------------------------------------------------------------------
+3.8. Multi-Modal Services Showcase (Sections.jsx -> Services)
+--------------------------------------------------------------------------------
+- Central Fleet DB Live Sync: Features a live status beacon displaying the number
+  of active vehicles and consignments fetched in real time from the backend database.
+- 6 Service Cards (Clickable to dedicated service pages):
+  1. 🚚 Road Freight (#road-freight): Reefer trucks with live telemetry.
+  2. 🚆 Intermodal / Rail Transport (#rail): Low-emission, monitored rail wagons.
+  3. ✈️ Air Cargo (#air-cargo): Time-critical vaccines and export produce.
+  4. 🚢 Ocean Freight (#ocean-freight): Deep-freeze export reefer containers.
+  5. 🏭 Logistics & Warehousing (#warehousing): Cold storage racks, WMS, and cross-docking.
+  6. 📋 Customs Clearance (#customs): Regulatory clearance and cold chain audit logs.
+- Dynamic Fleet Roster inside Cards: Each service card previews active vehicles,
+  assigned drivers, cargo types, and route status directly from the live database.
+
+--------------------------------------------------------------------------------
+3.9. People & Fleets Behind Deliveries (PeopleAndFleets.jsx)
+--------------------------------------------------------------------------------
+- Emotional Core of the Supply Chain: Recognizes the human frontline heroes.
+- Dual View Toggle:
+  - "⚡ Live Active Heroes": Real-time personnel directory pulled from the backend,
+    showing drivers, farmers, and cargo captains.
+  - "🎨 Illustrated Scenes": Four artistic SVG scenes depicting key moments.
+- Role Filters: Filter by All, Drivers, Farmers, or Captains/Guards.
+- Hero Profile Cards: Displays driver name, role title, experience years, trips
+  completed, care rating (e.g., 4.98/5), current route, and their personal story.
+- Interactive "Record Handover Moment" Modal:
+  Enables dispatchers or drivers to log an emotional handover milestone:
+  Select vehicle, handover type, location, emotional quote, temperature, and
+  generate a cryptographically verified signature hash.
+
+--------------------------------------------------------------------------------
+3.10. Proven Operational Impact Counters (Sections.jsx -> KeyFigures)
+--------------------------------------------------------------------------------
+- Animated counters showing measurable ROI:
+  - 2026: Year Founded
+  - 240+: Enterprise Shippers
+  - 18,500+: Agricultural Producers on Network
+  - 4,200+ Tonnes: Spoilage Prevented
+  - ₹62 Crore: Commercial Value Saved Across Cold Chain
+  - ₹24 Crore: Direct Farmer Income Protected
+  - 38%: Reduction in Transit Temperature Breaches
+  - >1,000: Active Telemetry IoT Units Monitored
+  - 370,000+ m²: Certified Multi-Temperature Warehouse Capacity
+
+--------------------------------------------------------------------------------
+3.11. Enterprise Impact & Technical FAQ (Sections.jsx -> Impact)
+--------------------------------------------------------------------------------
+- 4 Detailed Accordion Items explaining:
+  1. How autonomous thermal self-correction detects degradation up to 45 mins early.
+  2. How cryptographic handover records eliminate multi-party payment disputes.
+  3. How offline-first mobile check-in architecture functions in zero-signal areas.
+  4. How hardware-agnostic BLE, cellular, and satellite sensors integrate with fleets.
+
+--------------------------------------------------------------------------------
+3.12. Call to Action Banner & Footer (Sections.jsx -> Contact & Footer)
+--------------------------------------------------------------------------------
+- High-visibility banner: "Let's build a fresher, stronger India together."
+- "Request Pilot" button linking directly to the enterprise booking page (#pilot).
+- Footer: "Food | Farmers | Technology | Trust | A better tomorrow".
+
+--------------------------------------------------------------------------------
+3.13. Floating Global Widgets (Always Available on Every View)
+--------------------------------------------------------------------------------
+- 📲 On-Screen Phone Alert Center (AlertCenter.jsx):
+  Displays an on-screen toast simulation whenever a vehicle triggers a warning
+  or thermal breach. Shows the alert phone number and incident details.
+  (Shown on screen only for demo purposes; no unwanted SMS spam is dispatched).
+- 💬 "Ask FreshChain AI" Assistant (Chat.jsx):
+  A floating bottom-right chat widget. Opens a sleek chat drawer powered by the
+  backend AI gateway (/api/chat). Supports questions in English and Hindi/Hinglish
+  about available trucks, drivers on leave, telemetry, and revenue. Includes quick-prompt
+  chips ("Which trucks are available right now?", "Kaun se truck available hain?", etc.).
+
+
+================================================================================
+4. COMPLETE BREAKDOWN OF ALL OTHER PAGES & MODULES
+================================================================================
+
+--------------------------------------------------------------------------------
+4.1. Command Portal Login Page (#login)
+--------------------------------------------------------------------------------
+- Purpose: Secure role-based entry point for all cold-chain stakeholders.
+- ⚡ Quick-Switch Demo Roles:
+  Clicking any role auto-fills credentials and specifies the target dashboard:
+  1. 👑 Super Admin (superadmin@freshchain.in / Super@123) -> Full multi-modal command.
+  2. 🚚 Truck Manager (truckmanager@freshchain.in / Truck@123) -> Highway fleet command.
+  3. 🚆 Train Manager (trainmanager@freshchain.in / Train@123) -> Intermodal rail command.
+  4. 🚢 Ocean Manager (oceanmanager@freshchain.in / Ocean@123) -> Maritime container command.
+  5. 🏭 Warehouse Master (warehousemanager@freshchain.in / Warehouse@123) -> WMS bays.
+  6. 🧑‍✈️ Reefer Driver (driver@freshchain.in / Driver@123) -> Driver mobile cockpit.
+- Secure Authentication Form:
+  Validates credentials against FastAPI /api/auth/login, stores the JWT access token
+  in localStorage, updates the global user state, and redirects to the designated view.
+
+--------------------------------------------------------------------------------
+4.2. Live Demo: Mission Control (#demo)
+--------------------------------------------------------------------------------
+- Purpose: Interactive sandbox simulating cold-chain failures and autonomous reactions.
+- Components & Controls:
+  - Left Column (Fleet Roster):
+    - Vehicle Cards: Displays vehicle ID, type icon, temperature, real-time sparkline graph,
+      spoilage risk bar (green <30%, orange 30-60%, red >60%), and status tag (OK, WARN, BREACH).
+    - "+ Add vehicle": Opens FleetForm to register custom vehicles with customizable phone numbers.
+    - "Restore defaults": Resets the simulated fleet to standard vehicles.
+    - Selection: Click any vehicle card to select it for testing.
+  - Right Column (Interactive Route Map & Controls):
+    - SVG Corridor Map: Visualizes path between Farm -> Cold Store -> Distribution -> Retail.
+    - Autonomous Cargo Thermal Maintenance: Maintains temperature setpoints directly through
+      onboard cargo cooling without deviating from the corridor.
+    - "Simulate failure on selected": Injects a simulated compressor failure. The vehicle's
+      temperature climbs rapidly, crossing into EARLY WARNING and then BREACH (>8.0 °C).
+      The cargo itself activates autonomous thermal defense, stabilizing the temperature!
+    - "Go offline / Go online": Toggles network connectivity. In offline mode, driver
+      check-ins are queued locally.
+    - "Driver check-in": Simulates a driver logging cargo status.
+    - "Generate liability report": Unlocks as soon as a temperature breach occurs.
+  - Live Audit Log: Displays timestamped events (telemetry readings, rerouting events,
+    and phone alert dispatches) with an "Undo" action for removed vehicles.
+  - Check-in Queue: Shows items currently queued offline vs synced.
+  - Liability Docket (Appears after clicking Generate):
+    - Apportions liability percentage across all parties (e.g., Transporter 70%,
+      Cold Storage 20%, Retailer 10%, Farmer 0%).
+    - Generates legal audit-grade reasoning explaining who was at fault based on sensor slope.
+
+--------------------------------------------------------------------------------
+4.3. Transport Mode Command Pages (#truck, #train, #ocean, #air)
+--------------------------------------------------------------------------------
+- Purpose: Dedicated operational command screens tailored to specific modes:
+  - #truck-transport: National Highway Cold Corridors (NH-48, NH-66).
+  - #train-transport: Dedicated Freight Corridor (DFC) rail wagon rakes.
+  - #ocean-transport: Maritime routes, Controlled Atmosphere (CA) nitrogen regulation.
+  - #air-transport: High-altitude pressurized cold cargo for biopharma and vaccines.
+- Key Capabilities in Each Mode:
+  1. LivingMap Integration: Interactive regional map displaying coordinates of all
+     active vehicles in that mode, pulsing with breathing indicators.
+  2. Slicers & Filters: Search by vehicle ID or driver; filter by status (All, OK, Breach, Warning).
+  3. Dual Tabs:
+     - Vehicles Tab: Roster of vehicles with live temperatures, capacity, and setpoints.
+     - Shipments Tab: Active consignments with cargo descriptions, origins, destinations,
+       and real-time temperatures.
+  4. Action Modals:
+     - Add Vehicle: Register new assets with custom temperature bands and capacity.
+     - Assign Shipment: Assign cargo, customer contact, setpoints, and route distance.
+     - Trip Expenses: Log diesel fuel, tolls, refrigeration auxiliary power, and maintenance.
+     - Driver Coordination: Send priority dispatch messages directly to the assigned driver.
+     - Cold Chain Memory Book: Trigger a commemorative customer memory dossier.
+
+--------------------------------------------------------------------------------
+4.4. Driver Cockpit & Silent Haptic Portal (#driver-portal)
+--------------------------------------------------------------------------------
+- Purpose: Mobile-first, distraction-free interface engineered specifically for
+  reefer drivers and pilots operating high-speed vehicles on highways.
+- Silent Haptic Alert System:
+  - When temperature drifts or breaches occur, instead of loud jarring audio sirens that
+    could startle the driver, the app triggers silent haptic vibrations via the browser's
+    navigator.vibrate API ([200, 100, 200] ms pulse pattern).
+- Quick One-Tap Check-in Operations:
+  Drivers can tap 10 standardized buttons with a single touch:
+  1. 🔒 Seal Verified: Confirms cargo container seal is intact.
+  2. ❄️ Pre-cooling Check: Confirms pre-cooling cycle reached setpoint.
+  3. 🚪 Door Inspection: Inspects door gaskets for zero air ingress.
+  4. 🌡️ Cargo Temp Check: Logs digital core temp probe reading.
+  5. 🔧 Vehicle Inspection: Verifies compressor belts, coolant, and tire pressure.
+  6. 📦 Pickup Confirmed: Confirms loading at farm gate or warehouse.
+  7. 🏁 Delivery Confirmed: Confirms delivery and marks shipment delivered.
+  8. ⏳ Report Delay: Reports traffic congestion or corridor stoppage.
+  9. 🚨 Report Incident: Logs refrigeration or vehicle mechanical failure.
+  10. 🤝 Handover Completed: Captures receiving officer sign-off.
+- Dispatch Messages Drawer: Displays urgent route updates sent by dispatchers, with
+  instant "Acknowledge" buttons.
+- Real-Time Sensor Drift: Displays live digital temperature readings with continuous
+  micro-drifts reflecting realistic physical conditions.
+
+--------------------------------------------------------------------------------
+4.5. Executive Command Center / Admin Overview (#command-center)
+--------------------------------------------------------------------------------
+- Purpose: High-level executive cockpit for C-level leadership, dispatch heads,
+  and fleet controllers.
+- Multi-Tab Navigation:
+  1. 📊 Dashboard Tab:
+     - Top KPI Bar: Active Fleet Count, In-Transit Cargo (Tonnes), Spoilage Prevented
+       (Tonnes & ₹ Value), Active Critical Alarms, and Network Health Score.
+     - Mode Performance Matrix: Road, Rail, Ocean, Air metrics side by side.
+     - LivingMap: Global overview of all vehicles moving across Indian transit corridors.
+     - Critical Alarm Console: Lists active temperature breaches with one-click
+       resolution buttons ("Reroute to Nearest Depot", "Trigger Auxiliary Cooling").
+  2. 📦 Shipments Tab:
+     - Full consignment lifecycle manager across all modes.
+     - Search and filter by customer, product, origin, or destination.
+     - View consignments, assign vehicles/drivers, log trip expenses, and mark delivered.
+  3. 💳 Invoices & Financials Tab:
+     - Real-time financial ledger tracking freight revenue, auxiliary cooling costs,
+       tolls, net profit margins, and GST compliance.
+     - Invoice status badges (Paid, Pending, Overdue).
+     - "Pay Invoice" Action: Simulates settlement via Bank Wire, NEFT, or UPI.
+     - Detailed Invoice Modal: Itemized breakdown of transport charges, fuel surcharges,
+       and refrigeration expenses.
+  4. 👥 Personnel & Drivers Tab:
+     - Comprehensive personnel directory of drivers, train pilots, and vessel captains.
+     - Displays license numbers, license expiry dates, emergency contacts, care ratings,
+       and emotional stories.
+     - Status Toggle: Toggle availability between "Available", "Busy / On Assignment",
+       "Rest Period", and "On Leave".
+     - "+ Add Personnel" Modal: Register new drivers with complete KYC credentials.
+     - Send Message Modal: Dispatch direct messages to drivers.
+  5. 🚚 Fleet Registry Tab:
+     - Inventory of all registered vehicles across Road, Rail, Ocean, and Air.
+     - Add Vehicle Modal: Add new trucks, trains, ships, or planes.
+     - Failure Simulation: Inject refrigeration failure on any asset to test system response.
+  6. 📝 Pilot Trials Tab:
+     - Pipeline of enterprise clients who submitted 30-day trial requests via #pilot.
+     - Review company details, cargo type, monthly volume, and desired start dates.
+     - Status Workflow: Advance status (Reviewing -> Approved -> Provisioning -> Active).
+
+--------------------------------------------------------------------------------
+4.6. Service Pages & 3D Interactive Trackers (#road-freight, #rail, etc.)
+--------------------------------------------------------------------------------
+- Supported Service Routes:
+  - #road-freight (Reefer Trucks)
+  - #rail (Intermodal Rail Rakes)
+  - #air-cargo (Air Cargo Containers)
+  - #ocean-freight (Ocean Reefer Containers)
+  - #warehousing (Cold Storage Pallet Racking)
+  - #customs (Customs Declarations)
+- Key Capabilities on Each Service Page:
+  - Video Hero: High-definition looping video demonstrating that mode in action.
+  - Interactive Search Console:
+    - Search by Tracking Number (e.g., MH-12-FC-4091, CR-WAG-8812, MSK-REEFER-904).
+    - OR Search by Product Name and Quantity (e.g., "Alphonso Mangoes" + "5000 kg").
+  - 3D Digital Twin Engine (three/engine.js):
+    - Automatically renders a high-fidelity 3D model of that vehicle or facility.
+    - X-Ray Cutaway Mode: Click the 3D model to toggle an X-ray view revealing the crates
+      and product shapes stacked inside!
+    - Temperature Sensor Badges: Displays 3-zone live temperature badges (Front, Mid, Rear)
+      floating in 3D space above the model.
+  - Customs Clearance View (#customs): Displays a progressive milestone tracker
+    (Declaration Filed -> Document Verification -> Physical Inspection -> Port Release).
+
+--------------------------------------------------------------------------------
+4.7. Enterprise Pilot Trial Booking (#pilot)
+--------------------------------------------------------------------------------
+- Purpose: Self-service commercial onboarding portal for enterprise shippers.
+- Features:
+  - Explanation of the 3-step pilot process: Review -> Planning Call -> 30-Day Live Run.
+  - Booking Form: Full name, company name, work email, phone number (8-15 digits),
+    service required, cargo category, monthly volume, and target launch date.
+  - Inline Validation: Live validation highlights errors immediately as the user types.
+  - Instant Confirmation Dossier: Submits data to FastAPI backend (/api/pilot) and
+    generates a unique reference code (e.g., FC-PLT-84920) with a printable summary.
+
+--------------------------------------------------------------------------------
+4.8. Cold Chain Memory Book Dossier (MemoryBookModal.jsx)
+--------------------------------------------------------------------------------
+- Purpose: A customer-facing digital passport commemorating the unbroken journey
+  of perishable goods from grower to consumer.
+- Contents:
+  - Gold Seal of Cold Integrity with a unique share token (e.g., MEM-9041-DEMO).
+  - Cold Chain Soul Score: A score from 0 to 100 calculated from thermal stability,
+    gentle driving telemetry, and verified human care during all handoffs.
+  - Grower's Legacy Story: Personal narrative honoring the farmer who cultivated the crop.
+  - Transporter's Honor Story: Narrative honoring the driver who steered the cargo safely.
+  - Delivery Dossier: Origin, destination, total kilometers, duration, and thermal compliance %.
+  - Handover Timeline: Step-by-step verified timeline of every handover with quotes
+    and temperatures.
+
+--------------------------------------------------------------------------------
+4.9. LivingMap Real-Time Corridor Tracking Engine (LivingMap.jsx)
+--------------------------------------------------------------------------------
+- Geographic Projection: Custom coordinate projection mapping Indian logistics corridors:
+  - JNPT Port / Nhava Sheva (Major maritime container terminal)
+  - Mumbai Central Metropolitan Logistics Hub
+  - Nashik Agro Terminal (Grape and onion belt)
+  - Ratnagiri Orchards (Alphonso mango belt)
+  - Pune Cold Hub (Industrial and biopharma corridor)
+  - Nagpur Intermodal (Citrus hub)
+  - Ahmedabad Food Park (Western agricultural corridor)
+  - Arabian Sea Export Shipping Lane
+- "Living Fleet Breathing" Visual Animation:
+  - Calm Fleet (Green pulse, ~4.0s breath cycle): Assets operating at optimal setpoint.
+  - Warning Drift (Orange pulse, ~1.8s rapid cycle): Thermal slope rising.
+  - Critical Breach (Red flash, ~0.8s emergency pulse): Immediate action required.
+
+--------------------------------------------------------------------------------
+4.10. Farmer Protection Portal & Guaranteed Escrow (#farmer-portal)
+--------------------------------------------------------------------------------
+- Purpose: Frontline agricultural advocacy and financial security portal engineered
+  for smallholder farmers, orchard growers, and farmer producer organizations (FPOs).
+- Problem Solved: In conventional supply chains, whenever a reefer compressor breaks down
+  on the highway, commercial brokers withhold payments from farmers, forcing growers to
+  absorb 100% of transit spoilage.
+- Key Capabilities in FreshChain:
+  1. Cryptographically Guaranteed Zero-Deduction Escrow:
+     - Produce verified at the farm-gate receiving dock automatically indemnifies the farmer.
+     - Even if a total refrigeration failure occurs in transit, the farmer receives 100%
+       of the agreed harvest value without penalty or delay.
+  2. Smart Escrow Auto-Release Engine:
+     - Tracks payout settlement timers with a transparent 48-hour automated bank release
+       window directly credited via NEFT / UPI.
+  3. Real-Time Harvest Lot Tracking:
+     - Displays harvest batch ID, crop type (e.g., Alphonso Mangoes, Ratnagiri Grade A+),
+       quantity, farm-gate digital inspection temperature, and moisture content.
+  4. Instant Electronic Payment Docket:
+     - Generates printable payment slips detailing harvest rate (₹/kg), gross value,
+       zero-deduction indemnity confirmation, and bank transaction reference code.
+  5. Dedicated Farmer Leave & Field Relief Portal:
+     - Direct button to file farm absence, seasonal harvest break, or field relief requests
+       seamlessly integrated into the central leave store.
+
+--------------------------------------------------------------------------------
+4.11. Warehouse Manager Portal & Multi-Zone Cold Vaults (#warehouse-manager)
+--------------------------------------------------------------------------------
+- Purpose: High-throughput Cold Storage Warehouse Management System (WMS) tailored for
+  facility directors, chamber masters, and pallet forklift supervisors.
+- Key Capabilities:
+  1. Industrial Multi-Temperature Vault Monitoring:
+     - Chamber A (Sub-Zero Deep Freeze: -18.0 °C to -22.0 °C):
+       Engineered for ice cream, frozen seafood, IQF berries, and poultry.
+     - Chamber B (Chilled Fresh Produce: 2.0 °C to 4.0 °C):
+       Engineered for export-grade table grapes, apples, pomegranate, and broccoli.
+     - Chamber C (Controlled Atmosphere Pharma/Dairy: 6.0 °C to 8.0 °C):
+       Engineered for biopharmaceutical vaccines, insulin, butter, and artisanal cheese.
+  2. Pallet Intake & Dynamic Barcode Generator:
+     - One-click pallet ingestion modal creating unique scan codes (e.g., PAL-9042),
+       batch lot tracking, crop classification, gross weight, and assigned bay coordinate.
+  3. Four-Stage Lifecycle Pipeline:
+     - Seamless stage progression: Arrived -> In Storage -> Picked -> Dispatched.
+     - Tracks live pallet dwell times and triggers alerts if shelf-life expiration approaches.
+  4. Localized Warehouse Staff Leave Portal:
+     - Role-filtered leave filing allowing warehouse managers and facility staff to submit
+       and monitor operational leave requests without clutter from external rail/road pilots.
+
+--------------------------------------------------------------------------------
+4.12. Centralized Multi-Role Leave Management Portal (#leave-management)
+--------------------------------------------------------------------------------
+- Purpose: Company-wide personnel leave governance engine managed via a dedicated reactive
+  store (leaveStore.js) with localStorage persistence and live status synchronization.
+- Role-Segregated Intelligent Views:
+  - When accessed as Warehouse Manager: Dynamically filters the portal to display exclusively
+    warehouse facility personnel leaves.
+  - When accessed as Train Manager / Rail Pilot: Displays only intermodal railway pilots and railyard crew.
+  - When accessed as Reefer Driver: Displays driver personal leave balances and submitted requests.
+  - When accessed as Super Admin / Chief Dispatcher: Unlocks the full cross-network master roster
+    with instant one-click "Approve" and "Reject" administrative actions.
+- Application Submission Form:
+  - Form Fields: Applicant Name, Staff ID, Role Selector, Leave Type (Sick, Casual, Emergency,
+    Compensatory), Start Date, End Date, Reason, and Handover Relief Pilot Assignment.
+- Automatic Operational Impact Sync:
+  - When Super Admin approves a leave request, the personnel directory in AdminOverviewPage.jsx
+    automatically toggles the employee's status to "On Leave", preventing dispatchers from
+    assigning loads to resting drivers.
+
+--------------------------------------------------------------------------------
+4.13. Driver Roadside Breakdown Assistance SOS (#breakdown)
+--------------------------------------------------------------------------------
+- Purpose: Emergency roadside lifeline designed for reefer pilots stranded due to mechanical
+  engine failure, tire blowout, or auxiliary generator breakdown on rural highways.
+- Key Capabilities:
+  1. Single-Tap Red Alert SOS Broadcast:
+     - Immediately captures the driver's live GPS coordinates, vehicle registration, and cargo temperature.
+     - Transmits high-priority emergency telemetry directly to the Super Admin Executive Cockpit.
+  2. Real-Time Cargo Value & Thermal Horizon Protection:
+     - Displays cargo spoilage clock and remaining thermal cushion inside the stranded vehicle.
+  3. Super Admin Live Rescue Dispatch Banner:
+     - Executive Command Center flashes a dedicated amber breakdown banner across all admin tabs.
+     - Controllers can click "Dispatch Mobile Reefer Rescue Tech" with one touch, automatically
+       routing the nearest mobile mechanic equipped with a backup cryogenic cooling unit.
+
+--------------------------------------------------------------------------------
+4.14. Sustainability Impact Dashboard & Certified ESG PDF Generator (#impact)
+--------------------------------------------------------------------------------
+- Purpose: Institutional ESG decarbonization reporting suite adhering to GHG Protocol (Scope 1 & 3),
+  ISO 14064-1:2018, and GLEC (Global Logistics Emissions Council) framework standards.
+- Real-Time Sustainability Metrics:
+  - Food Waste Mitigated (Tonnes): 14.8 Tonnes (14,800 kg perishable produce saved).
+  - Financial Loss Averted (INR): ₹32.4+ Lakhs directly preserved for agricultural supply chains.
+  - Total Carbon Emissions Avoided (Tonnes CO2e): 38.6 Tonnes CO2e prevented across active corridors.
+  - Tree Offset Equivalents: ~1,750 mature urban trees working for one full calendar year.
+- Modal Decarbonization Scenario Modeling:
+  - Live comparative analysis: Road Reefer Diesel (124 g CO2/t-km) vs Hybrid Battery Reefer (68 g CO2/t-km)
+    vs Cryogenic Chiller (52 g CO2/t-km) vs Electrified Intermodal Rail (32 g CO2/t-km).
+- Official Audit-Grade PDF Certificate Generation (esgCertificatePdf.js):
+  - Generates downloadable, printable ESG Carbon & Fuel Audit Certificate with a single click.
+  - Features: Double emerald border, gold corner insignia, verified QR code ledger hash,
+    itemized diesel propulsion vs reefer auxiliary fuel split, +10% mandatory cold-chain
+    safety reserve, and auditor sign-off.
+
+
+================================================================================
+5. HOW TO USE THIS WEBSITE: STEP-BY-STEP USER JOURNEYS
+================================================================================
+
+--------------------------------------------------------------------------------
+5.1. Journey for a First-Time Visitor & Evaluator
+--------------------------------------------------------------------------------
+1. Start at Home (http://localhost:5173/):
+   - Watch the isometric 3D world rotate through the 9 stations. Click different
+     tabs (e.g., "Road", "Rail", "Air & Sea") to fly the camera around.
+2. Scroll through the narrative:
+   - Read the Problem counters.
+   - Click the 5 handover tabs under "The cold-chain journey" to see where traditional
+     logistics fails vs how FreshChain solves it.
+   - Watch the flagship reefer truck glide across the screen with spinning wheels.
+3. Launch the Live Demo (#demo):
+   - Click "Try the Live Demo" or navigate to #demo.
+   - Notice the fleet list with live temperatures and sparklines.
+   - Click a vehicle (e.g., RF-204) to select it.
+   - Click "Simulate failure on selected".
+   - Watch the temperature climb into the danger zone (>8 °C).
+   - Look at the map: Cargo autonomous thermal defense activates directly on the vehicle marker to stabilize the temperature!
+   - Once the breach settles, click "Generate liability report" to review the
+     automated liability breakdown and legal reasoning.
+4. Test the AI Assistant:
+   - Click "💬 Ask FreshChain AI" at the bottom right.
+   - Click a quick chip like "Which trucks are available right now?" or type a custom
+     question in English or Hindi (e.g., "Kaun se truck available hain?").
+
+--------------------------------------------------------------------------------
+5.2. Journey for a Fleet Manager / Dispatcher
+--------------------------------------------------------------------------------
+1. Log In:
+   - Navigate to #login.
+   - Click the "🚚 Truck Manager" or "👑 Super Admin" quick-switch button.
+   - Click "Launch Command Center".
+2. Manage Highway Operations:
+   - You arrive at #truck-transport.
+   - Inspect the LivingMap to see where trucks are currently positioned on NH-48 and NH-66.
+   - Click "+ Add Vehicle" to onboard a new reefer truck with license plate, safe
+     temperature range (e.g., 2 °C to 8 °C), and payload capacity.
+3. Assign a Consignment:
+   - Click "Manual Shipment Assignment".
+   - Enter Customer Name, Cargo (e.g., "Alphonso Mangoes"), Quantity, Origin,
+     Destination, and Safe Temperature Setpoint (4.0 °C).
+   - Submit to immediately assign the load to an available truck and driver.
+4. Coordinate with Drivers:
+   - Switch to the Shipments tab.
+   - Click "Message Driver" to transmit a high-priority traffic or corridor notification.
+   - Click "Record Expenses" to log fuel receipts, toll plaza fees, and auxiliary
+     compressor running costs.
+
+--------------------------------------------------------------------------------
+5.3. Journey for a Reefer Driver / Pilot
+--------------------------------------------------------------------------------
+1. Log In:
+   - Navigate to #login.
+   - Click the "🧑‍✈️ Reefer Driver" quick-switch button (driver@freshchain.in / Driver@123).
+   - Click "Launch Command Center" to be taken directly to #driver-portal.
+2. Monitor Live Cargo Temperature:
+   - The large digital display indicates current cargo temperature (e.g., 4.1 °C).
+   - Ensure "Silent Alert" mode is toggled ON.
+3. Execute Standard Handover Milestones:
+   - Before departure: Tap "🔒 Seal Verified" and "❄️ Pre-cooling Check".
+   - At loading dock: Tap "📦 Pickup Confirmed".
+   - If delayed in traffic: Tap "⏳ Report Delay".
+   - Upon arrival at the receiving warehouse: Tap "🏁 Delivery Confirmed".
+   - Notice how each tap instantly writes a verified audit check-in to the backend.
+4. Review Messages from Dispatch:
+   - Read any incoming instructions from dispatchers at the bottom of the cockpit.
+   - Tap "Acknowledge" to confirm receipt.
+
+--------------------------------------------------------------------------------
+5.4. Journey for an Executive / Super Admin
+--------------------------------------------------------------------------------
+1. Access Executive Command:
+   - Sign in as "👑 Super Admin" or click "📊 Admin Panel" in the top navigation (#command-center).
+2. Review High-Level Network Health:
+   - Inspect total active fleet count, in-transit tonnage, and spoilage prevented.
+   - Review the financial metrics (Total Revenue, Spoilage Value Saved, Net Margins).
+3. Manage Invoices & Settle Payments:
+   - Switch to the "Invoices" tab.
+   - Review pending customer invoices. Click "View Details" to see itemized fuel,
+     freight, and auxiliary cooling costs.
+   - Click "Pay Invoice" to simulate instant payment via Bank Wire or UPI.
+4. Manage Personnel & Drivers:
+   - Switch to the "Drivers & Personnel" tab.
+   - Review driver care ratings, license expiry dates, and completed trips.
+   - Toggle driver availability (e.g., switch a driver from "Available" to "Rest Period").
+   - Click "+ Add Personnel" to onboard a new driver or pilot.
+5. Approve Enterprise Pilot Trials:
+   - Switch to the "Pilot Trials" tab.
+   - Review inbound requests submitted by enterprise clients.
+   - Click the status dropdown to advance requests from "Reviewing" to "Approved"
+     and assign operational corridor notes.
+
+--------------------------------------------------------------------------------
+5.5. Journey for a Commercial Shipper / Farmer Tracking Cargo
+--------------------------------------------------------------------------------
+1. Navigate to the relevant mode (e.g., #road-freight or #rail).
+2. Enter a tracking number (e.g., "RF-204" or "MH-12-FC-4091") or enter the product
+   name (e.g., "Alphonso Mangoes") and quantity (e.g., "5000 kg").
+3. Press Enter / click "Search".
+4. The page scrolls smoothly to the 3D Digital Twin Viewer:
+   - Rotate the 3D truck or rail wagon in 360 degrees.
+   - Click the model to activate X-Ray Cutaway Mode and inspect the cargo crates inside.
+   - Read the real-time floating temperature badges (Front, Mid, Rear zones).
+   - Check the estimated time of arrival (ETA) and route status.
+5. View the Cold Chain Memory Book:
+   - Click "View Memory Book" to open the commemorative dossier.
+   - Read the grower's story, driver's story, and review the verified handover quotes.
+
+--------------------------------------------------------------------------------
+5.6. Journey for an Enterprise Client Requesting a Pilot
+--------------------------------------------------------------------------------
+1. Click "Request Pilot" in the top navigation or navigate to #pilot.
+2. Complete the corporate booking form:
+   - Company Name, Full Name, Work Email, Contact Phone.
+   - Desired Service (Road, Rail, Ocean, Air, Warehousing, or Customs).
+   - Cargo Type (Fruits, Vegetables, Dairy, Biopharma/Vaccines, Meat/Seafood).
+   - Estimated Monthly Volume (<5 tonnes, 5-20 tonnes, 20-100 tonnes, >100 tonnes).
+   - Target Start Date.
+3. Submit the Form:
+   - An instant reference code is generated (e.g., FC-PLT-48921).
+   - The request is stored in the backend database and appears immediately in the
+     Executive Command Center (#command-center -> Pilot Trials tab) for admin review.
+
+--------------------------------------------------------------------------------
+5.7. Journey for a Smallholder Farmer Tracking Produce & Guaranteed Escrow
+--------------------------------------------------------------------------------
+1. Log In or Quick-Switch:
+   - Navigate to #login.
+   - Click the "🌾 Farmer" quick-switch button (farmer@freshchain.in / Farmer@123).
+   - Click "Launch Command Center" to land directly in #farmer-portal.
+2. Verify Harvest Lot Receiving & Quality Stamp:
+   - Inspect active harvest lots (e.g., "Lot #FC-RTN-902: Alphonso Mangoes Grade A+").
+   - Review the verified farm-gate dispatch temperature (3.8 °C) and moisture index (84%).
+3. Track Guaranteed Payout & Smart Escrow:
+   - View the live 48-Hour Escrow Settlement Clock counting down to automated release.
+   - Verify the Zero-Deduction Indemnity badge confirming 100% financial compensation
+     regardless of highway reefer failures.
+   - Click "Download Payout Docket" to export an itemized banking slip.
+4. File Field Assistance or Seasonal Leave:
+   - Click "Submit Leave / Relief Request" to file a scheduled absence or harvest relief
+     request directly into the central leave store.
+
+--------------------------------------------------------------------------------
+5.8. Journey for a Cold Storage Warehouse Manager
+--------------------------------------------------------------------------------
+1. Log In:
+   - Navigate to #login.
+   - Click "🏭 Warehouse Master" (warehousemanager@freshchain.in / Warehouse@123).
+   - Click "Launch Command Center" to land in #warehouse-manager.
+2. Monitor Multi-Zone Cold Vault Chambers:
+   - Inspect live temperatures across Chamber A (-19.2 °C Deep Freeze), Chamber B (3.1 °C
+     Chilled Produce), and Chamber C (7.0 °C Controlled Atmosphere).
+3. Ingest Inbound Perishable Pallets:
+   - Click "+ Ingest Pallet" to open the bay intake modal.
+   - Select crop type, quantity, initial probe temperature, and target chamber.
+   - System automatically allocates a pallet slot and generates a scan barcode (e.g., PAL-9821).
+4. Advance Pallet Through the Lifecycle:
+   - Move pallets along the 4-stage pipeline: Arrived -> In Storage -> Picked -> Dispatched.
+5. Manage Facility Staff Leaves:
+   - Click "Warehouse Leave Portal" to view active leave requests for cold storage technicians
+     and forklift drivers without clutter from external road or rail personnel.
+
+--------------------------------------------------------------------------------
+5.9. Journey for Personnel Submitting and Approving Leaves
+--------------------------------------------------------------------------------
+1. Submitting a Leave Application (Frontline Staff / Drivers / Managers):
+   - Navigate to #leave-management.
+   - Fill in Applicant Name, Staff ID, Role, Leave Category (Sick, Casual, Emergency),
+     Date Range, Reason, and Handover Relief Pilot.
+   - Click "Submit Leave Application".
+   - The application is saved to leaveStore with status "PENDING" and syncs to localStorage.
+2. Reviewing & Approving Leaves (Super Admin / Chief Dispatcher):
+   - Log into Executive Command (#command-center).
+   - Navigate to #leave-management.
+   - View the cross-company pending leave queue.
+   - Click "Approve" (turns green) or "Reject".
+   - Upon approval, the personnel registry in AdminOverviewPage.jsx instantly updates the
+     employee's availability to "On Leave", automatically locking them from assignment.
+
+
+================================================================================
+6. AUTONOMOUS & AI SYSTEMS DEEP-DIVE
+================================================================================
+
+--------------------------------------------------------------------------------
+6.1. Thermodynamic Physics Simulation Engine
+--------------------------------------------------------------------------------
+FreshChain features a realistic thermodynamic simulation engine that runs both on
+the server (FastAPI background worker) and on the client (React fleetStore):
+- Baseline Setpoint: Every vehicle has a target baseline temperature (e.g., 4.0 °C).
+- Normal Drift: When operating normally, the temperature fluctuates within a safe
+  thermal band (3.5 °C to 4.5 °C) via subtle mean-reverting stochastic noise:
+    T_next = T_curr + (T_base - T_curr) * 0.3 + NormalNoise(-0.2, 0.2)
+- Compressor Failure Dynamics: When failure is triggered, cooling stops and ambient
+  heat ingress takes over:
+    T_next = T_curr + 0.55 + Uniform(0.0, 0.25)
+- Thermodynamic Slope Analysis:
+  The system computes the rate-of-change slope over the last 5 telemetry samples:
+    Slope = (T_now - T_5_samples_ago) / 5.0
+- Dynamic Spoilage Risk (0 to 100%):
+  Calculated from both absolute temperature delta and rate-of-change slope:
+    Risk = (T_curr - T_base) * 14.0 + max(0, Slope) * 45.0
+- Three-Tier Status Classification:
+  1. OK: Temperature <= 8.0 °C and Slope <= 0.25 °C/step.
+  2. EARLY WARNING: Temperature <= 8.0 °C but Slope > 0.25 °C/step (indicates impending failure).
+  3. BREACH: Temperature > 8.0 °C (triggers immediate corridor rerouting and alert dispatch).
+- Autonomous Route Rerouting:
+  When a BREACH occurs, the vehicle's navigation coordinate automatically diverges
+  from the commercial route and redirects toward the nearest certified cold storage depot.
+
+--------------------------------------------------------------------------------
+6.2. Multi-Party Liability Docketing Algorithm
+--------------------------------------------------------------------------------
+When a temperature breach occurs, FreshChain eliminates months of litigation by
+running an automated liability apportionment algorithm:
+- Evidence Collection: Evaluates sensor slope at failure, timestamp of failure,
+  compressor power telemetry, and pre-departure dock logs.
+- Standard Apportionment Formula:
+  - Transporter (70%): Primary carrier responsible for in-transit mechanical refrigeration
+    continuity and immediate response to degradation warnings.
+  - Cold Storage Facility (20%): Contributing party responsible for verifying pre-cooling
+    temperatures prior to dock handover.
+  - Commercial Retailer (10%): Contributing party responsible for receiving dock dwell times.
+  - Smallholder Farmer (0%): The farmer is cryptographically guaranteed 0% liability,
+    as harvest inspection confirmed produce was compliant at farm-gate loading.
+- Audit Reasoning: An insurance-grade legal justification is generated detailing exact
+  temperature spikes, timestamps, and compliance guidelines (HACCP / ISO 22000).
+
+--------------------------------------------------------------------------------
+6.3. Offline-First Sensor & Check-in Synchronization
+--------------------------------------------------------------------------------
+- Rural Indian highways frequently suffer from cellular dead zones.
+- When the network goes down, FreshChain transitions into Offline Mode.
+- Driver check-ins and IoT logs are stored in a local FIFO queue (localStorage / indexedDB).
+- Every record preserves its original hardware generation timestamp (device_timestamp)
+  and GPS coordinates.
+- When network connectivity is restored, the client executes a batch synchronization
+  request (POST /api/checkins/batch-sync), ingesting the queued records in chronological
+  order without overwriting or distorting historical timelines.
+
+--------------------------------------------------------------------------------
+6.4. Bilingual Conversational AI Assistant (English & Hindi)
+--------------------------------------------------------------------------------
+- Located in the floating chat drawer at the bottom right.
+- Backend Endpoint: POST /api/chat.
+- Domain Heuristics & Live Database Integration:
+  - Queries live database state to answer questions about:
+    * Available trucks ready for dispatch.
+    * Drivers currently on leave or rest periods.
+    * Current status, cargo, and location of specific vehicles (e.g., RF-204).
+    * Total financial revenue, operating expenses, and spoilage prevented.
+- Bilingual Language Support:
+  - English: "Which trucks are available right now?" -> Returns available vehicle IDs and depots.
+  - Hindi / Hinglish: "Kaun se truck available hain?" -> Replies fluently in Hindi/Hinglish
+    with real-time fleet availability!
+
+--------------------------------------------------------------------------------
+6.5. COMPREHENSIVE MACHINE LEARNING & PREDICTIVE MODELS SPECIFICATION
+--------------------------------------------------------------------------------
+FreshChain integrates six distinct machine learning, predictive statistical, and
+thermodynamic physics models across its edge and cloud runtimes. Below is the
+exhaustive specification for each model, including its architecture, mathematical
+formulations, data used, input features, and operational outputs.
+
+================================================================================
+6.5.1. MODEL 1: PREDICTIVE TEMPERATURE GUARDIAN
+       (Thermal Slope & Breach Horizon Estimator)
+================================================================================
+- Model Classification: Real-time Time-Series Regression & Predictive Horizon Estimator.
+- Implementation Location:
+  - Backend: TemperatureGuardianService in backend/app/services/guardian_service.py
+  - Frontend: LivingMap.jsx and fleetStore.js
+- Problem Addressed:
+  Conventional cold-chain telematics only trigger an alarm AFTER the temperature crosses
+  the 8.0 °C threshold. By that point, enzymatic degradation of fruits, microbial bloom
+  in dairy, or denaturation in vaccines has already commenced. The Guardian predicts
+  breaches 25 to 45 minutes in advance while the cargo is still at safe temperatures.
+- Mathematical Formulation:
+  1. Five-Tick Rate-of-Change Slope:
+       Slope_t = (T_t - T_{t-5}) / 5.0    [°C per simulation tick, where dt = 4.0 seconds]
+  2. Time-to-Breach Horizon (Minutes):
+       If is_failed = True OR Slope_t > 0.20 °C/tick:
+         Delta_T = max(0.0, 8.0 - T_curr)
+         t_breach = max(5, int((Delta_T / Slope_t) * 12))
+       Else if T_curr > 7.0 °C:
+         t_breach = 85 minutes (Thermal cushion narrowing warning)
+       Else:
+         t_breach = None (Thermal cushion optimal)
+  3. Dynamic Living Map "Breathing Rate" Frequency (nu in Hz):
+       nu(T, Slope, is_failed) = 
+         | 2.8 Hz (Emergency rapid pulse)   if is_failed = True OR Slope > 0.20
+         | 1.6 Hz (Elevated warning pulse)  if T_curr > 7.0 °C
+         | 0.9 Hz (Calm serene pulse)       otherwise
+- Data Used:
+  - 30-sample rolling core temperature buffer ([T_{t-29}, ..., T_t]) sampled every 4 seconds.
+  - Commodity baseline safe setpoints (T_base from 2.0 °C to 8.0 °C).
+  - Ambient Corridor Heat Index: Calibrated to Indian summer highway corridors
+    (NH-48 Mumbai-Pune-Bengaluru, NH-66 Konkan Expressway) with ambient road temperatures
+    reaching 38 °C to 44 °C.
+  - Historical evaporator thermal degradation slopes under varying compressor loads.
+- Operational Inputs:
+  - current_temp (float), base_temp (float), is_failed (bool), history (list[float]), route (str).
+- Predictive Outputs:
+  - minutes_to_breach (int): Predicted minutes before crossing 8.0 °C.
+  - prediction_text (str): Actionable operational recommendation.
+  - silent_alert_active (bool): Triggers [200, 100, 200] ms haptic vibration in driver cockpit.
+  - breath_rate (float): Living map visual pulse frequency (0.9 to 2.8 Hz).
+  - slope (float): Real-time temperature gradient rounded to 3 decimal places.
+
+================================================================================
+6.5.2. MODEL 2: THERMODYNAMIC NEWTON COOLING/WARMING & AUTONOMOUS CARGO REGULATION
+       (Physics-Informed Differential Thermal Dynamics & Closed-Loop Control)
+================================================================================
+- Model Classification: Physics-Informed Differential Dynamic Simulation with
+  Closed-Loop Autonomous Self-Correction.
+- Implementation Location:
+  - Backend: SimulationService.tick_vehicle in backend/app/services/simulation_service.py
+  - Frontend: fleetStore.js
+- Problem Addressed:
+  Refrigerated transit is subject to external thermal heat transfer and internal
+  respiration heat. Traditional systems force a 40-tonne truck to divert to a third-party
+  cold store when an anomaly occurs. FreshChain's autonomous cargo model regulates
+  temperatures directly onboard without external diversion.
+- Mathematical Formulation:
+  1. Steady-State Mean-Reverting Equilibrium:
+       T_{t+1} = T_t + 0.30 * (T_base - T_t) + Uniform(-0.20, 0.20)
+  2. Compressor Breakdown Heat Ingress (Newton's Law of Heating):
+       T_{t+1} = T_t + 0.55 + Uniform(0.00, 0.25)
+  3. Continuous Spoilage Risk Probability Metric:
+       Risk_t = clamp_{[0, 100]}((T_curr - T_base) * 14.0 + max(0, Slope) * 45.0)
+  4. Autonomous Cargo Self-Regulation (Engages when T_curr > 9.0 °C):
+       T_{t+1} = T_t + 0.40 * (T_base - T_t) + Uniform(-0.04, 0.04)
+       When |T_curr - T_base| <= 0.6 °C:
+         is_failed = False
+         status = "OK"
+         journey_status = "In Transit - Cargo Protected"
+- Data Used:
+  - Thermal conductivity (U-values) of polyurethane sandwich panels (k = 0.024 W/m·K).
+  - Latent heat of respiration of perishable produce (e.g., Alphonso Mangoes: 45 to 80 W/tonne).
+  - Highway air velocity dynamic convection coefficients at 50 to 80 km/h.
+- Operational Inputs:
+  - Vehicle telemetry buffer, compressor operational state, journey progress %.
+- Predictive Outputs:
+  - Next-tick temperature T_{t+1}, Spoilage Risk (0-100%), vehicle status (OK / EARLY WARNING / BREACH),
+  - Autonomous cargo protection state transition, IncidentLog generation.
+
+================================================================================
+6.5.3. MODEL 3: COLD CHAIN SOUL SCORE ENGINE
+       (Multi-Criteria Weighted Ethical Quality Index)
+================================================================================
+- Model Classification: Multi-Criteria Decision Analysis (MCDA) & Composite Ethical Index.
+- Implementation Location:
+  - Backend: SoulScoreService in backend/app/services/soul_score_service.py
+  - Frontend: MemoryBookModal.jsx, PeopleAndFleets.jsx, and fleetStore.js
+- Problem Addressed:
+  Logistics metrics traditionally focus solely on on-time delivery while ignoring how
+  humanely and gently the cargo was nurtured. Produce subjected to violent vibration,
+  rough handling, or thermal shocks loses shelf-life even if it arrives "on time".
+  The Soul Score provides a 0-100 rating of unbroken care.
+- Mathematical Formulation:
+  1. Weighted Composite Index:
+       SoulScore = clamp_{[10, 100]}(
+         (C_temp * 0.40) + (Q_handover * 0.25) + (S_transit * 0.20) + (P_time * 0.15)
+       )
+  2. Temperature Compliance Component (C_temp):
+       Delta_T = |T_curr - T_base|
+       If temp_breached = True:
+         C_temp = max(20.0, 100.0 - (Delta_T * 18.0))
+       Else:
+         C_temp = max(70.0, 100.0 - (Delta_T * 6.0))
+  3. Handover Care Quality (Q_handover):
+       Mean score across electronic dock sign-offs (baseline 95.0%).
+  4. Transit & Driving Smoothness (S_transit):
+       Ingested from telematics accelerometer/gyroscope jerk telemetry (baseline 92.0%).
+  5. Punctuality & Care Balance (P_time):
+       On-time transit efficiency relative to schedule (baseline 96.0%).
+- Ethical Classification Tiers:
+  - Score >= 95: "Sacred Chain" (#2f9e6a, Pristine condition, profound dignity from farm gate).
+  - Score 85-94: "Honorable Care" (#2b7fff, High thermal integrity across all handovers).
+  - Score 70-84: "Minor Stress" (#d98a00, Slight thermal oscillation mitigated by driver).
+  - Score < 70 : "Thermal Distress" (#d6001c, Compromised insulation, immediate intervention).
+- Data Used:
+  - IoT core digital probe records, physical dock sign-off inspection logs,
+    telematics vibration indices, verified milestone timestamps.
+- Operational Inputs:
+  - current_temp, base_temp, temp_breached, handover_care_avg, driver_smoothness, time_efficiency.
+- Outputs:
+  - Numeric score (0-100), rank name, color hex code, human narrative description,
+    and itemized component breakdown in the Customer Memory Book passport.
+
+================================================================================
+6.5.4. MODEL 4: AUTOMATED MULTI-PARTY LIABILITY ARBITRATION MODEL
+       (HACCP / ISO 22000 Fault Allocation & Dispute Resolution)
+================================================================================
+- Model Classification: Algorithmic Root-Cause Causality & Contractual Liability Apportionment.
+- Implementation Location:
+  - Backend: SimulationService.generate_liability_docket in simulation_service.py
+    and router backend/app/routers/liability.py
+  - Frontend: Demo.jsx
+- Problem Addressed:
+  When a refrigeration breach occurs on Indian highways, disputes between the farmer,
+  transporter, cold store, and retailer take 6 to 9 months of litigation to resolve.
+  FreshChain's model calculates legally binding liability within seconds based on IoT telemetry.
+- Apportionment Formulation:
+  - Transporter Share = 70%
+    Reasoning: Carrier is primarily responsible for in-transit mechanical refrigeration
+    continuity and timely response to degradation warnings.
+  - Cold Storage Facility Share = 20%
+    Reasoning: Contributing party responsible for verifying pre-cooling setpoints
+    prior to dock handover.
+  - Commercial Retailer Share = 10%
+    Reasoning: Contributing party responsible for unloading dock dwell times.
+  - Smallholder Farmer Share = 0% (Cryptographically Guaranteed Zero-Deduction)
+    Reasoning: Farm-gate IoT inspection slips verify produce met standard pre-cooling
+    guidelines at loading. Farmers are legally and financially indemnified.
+  - Itemized Settlement:
+      Payout_i = Claim Amount (INR) * Share_i
+      (e.g., On a ₹1,50,000 claim: Transporter ₹1,05,000; Cold Storage ₹30,000;
+       Retailer ₹15,000; Farmer ₹0).
+- Data Used:
+  - Pre-cooling dock temperature validation records, electronic gate-pass timestamps,
+    sensor rate-of-change degradation slope at time of failure, driver check-in event logs
+    (pre_cooling_check, seal_verified), ambient corridor weather data.
+- Operational Inputs:
+  - vehicle_id, claim_amount_inr, incident telemetry logs.
+- Outputs:
+  - Unique Liability Docket (e.g., DK-261025-4819), percentage fault split, itemized INR
+    breakdown, and insurance-grade audit reasoning citing HACCP / ISO 22000 standards.
+
+================================================================================
+6.5.5. MODEL 5: BILINGUAL RAG CONVERSATIONAL AI ASSISTANT
+       (Groq / OpenAI LLM + Zero-Shot SQLite Database Schema RAG)
+================================================================================
+- Model Classification: Retrieval-Augmented Generation (RAG) Large Language Model with
+  Dynamic Schema Grounding and Real-Time Entity Extraction.
+- Implementation Location:
+  - Backend: ChatService in backend/app/services/chat_service.py
+  - Frontend: Chat.jsx
+- Model Architectures & API Providers:
+  1. Primary Engine: Groq Cloud API running Ultra-low-latency Llama 3.3 70B Versatile,
+     Llama 3.1 8B, GPT-OSS 120B, and Qwen 3.8 27B models with sub-second inference.
+  2. Fallback Engine: OpenAI API (gpt-4o-mini / gpt-3.5-turbo) and local deterministic
+     SQL query heuristics engine.
+- Dynamic Schema Grounding Context (_build_system_db_context):
+  Before invoking the LLM, the system dynamically introspects live SQLite tables:
+  - vehicles: Live coordinates, current temperatures, status, cargo types, base setpoints.
+  - personnel: Driver profiles, license expiry dates, leave status, care ratings.
+  - shipments: Active orders, origins, destinations, ETA, customer contacts.
+  - invoices: Revenue, fuel surcharges, auxiliary cooling costs, GST compliance, payment status.
+  - pilot_requests: Enterprise trial inquiries, cargo volumes, requested corridor modes.
+  - leaves: Staff leave records, dates, and approvals across roles.
+- NLP Capabilities & Bilingual Understanding:
+  - English, Hindi, and colloquial Hinglish (e.g., "Kaun se truck available hain?",
+    "RF-204 ka temperature kitna hai?").
+  - Automated User Identity Extraction: Regex-based pattern extractor (_extract_name_from_text)
+    detecting introductions across English and Hindi (e.g., "Mera naam Ramesh hai", "My name is Priya").
+  - Persistent Session Memory: ChatSession records track user names and conversation context.
+- Operational Inputs:
+  - messages (list of user/assistant turns), session_id, user_name, live database sessions.
+- Outputs:
+  - Markdown-formatted conversational answers, live bulleted fleet lists, rupee-denominated (₹)
+    financial balances, and identity-aware personalized greetings.
+
+================================================================================
+6.5.6. MODEL 6: FREIGHT CARBON FOOTPRINT & DECARBONIZATION PREDICTOR
+       (GHG Protocol Scope 1 & 3 & GLEC Framework Methodology)
+================================================================================
+- Model Classification: Multi-Modal Comparative Decarbonization & Fuel Combustion Model.
+- Implementation Location:
+  - Frontend: AdminOverviewPage.jsx (calculateCarbonEmission) and esgCertificatePdf.js
+- Standards & Compliances:
+  - ISO 14064-1:2018 (Quantification and reporting of greenhouse gas emissions).
+  - Global Logistics Emissions Council (GLEC) Framework.
+  - Greenhouse Gas Protocol (Scope 1 Direct Mobile Combustion & Scope 3 Freight Value Chain).
+- Mathematical Formulation:
+  1. Freight Carbon Footprint:
+       E_total = (Distance_km * Weight_tonnes * Intensity_factor) / 1,000,000  [Tonnes CO2e]
+       Total_kg = E_total * 1,000
+     Intensity Factors (g CO2e / tonne-km):
+       - Road Reefer (Standard Diesel): 124 g CO2/t-km
+       - Road Reefer (Hybrid Electric): 68 g CO2/t-km
+       - Road Reefer (Cryogenic Liquid Nitrogen Chiller): 52 g CO2/t-km
+       - Electrified Intermodal Rail (Clean Grid): 32 g CO2/t-km (Hybrid Rail: 22 g CO2/t-km)
+  2. Fuel Decomposition & Engine Propulsion vs Reefer Cooling Split:
+       Transit_hours = Distance_km / Effective_speed
+       V_reefer = Transit_hours * Burn_rate    [Litres of diesel for cooling]
+         where Burn_rate = 2.4 L/hr (Diesel), 0.6 L/hr (Hybrid), 0.0 L/hr (Cryogenic)
+       V_total_road = Distance_km * (0.28 + Weight_tonnes * 0.018) * Efficiency_multiplier
+       V_propulsion = max(1.0, V_total_road - V_reefer)
+       V_total = V_propulsion + V_reefer
+       Fuel_Cost = V_total * Diesel_Price_INR
+  3. Anti-Spoilage Safety Reserve (+10% Cold-Chain Safety Buffer):
+       Safety_buffer = V_total * 0.10
+       Recommended_tank_level = V_total + Safety_buffer
+       (Ensures the reefer chiller can run an extra ~4.9 hours in case of highway gridlock).
+  4. Modal Shift Decarbonization & Financial Savings (Road to Electrified Rail):
+       Emissions_averted_tonnes = E_road - E_rail  (~74% reduction in CO2e)
+       Diesel_displaced_litres = Distance_km * (0.28 + Weight_tonnes * 0.018)
+       Cost_saved_INR = Diesel_displaced_litres * Diesel_Price_INR
+       Kwh_equivalent = Distance_km * Weight_tonnes * 0.10 kWh
+       Rail_electricity_cost = Kwh_equivalent * 7.2 INR/kWh (Green industrial tariff)
+  5. Biosequestration Tree Offset Equivalency:
+       Trees_needed = ceil(Total_kg / 22)  [based on 22 kg CO2 absorbed per tree-year]
+- Data Used:
+  - Commercial high-speed diesel prices (₹90/L baseline across Indian corridors).
+  - Indian commercial grid emission factor (0.71 kg CO2/kWh baseline vs green renewable tariff).
+  - Empirical fuel burn tables for multi-axle freight reefers (Tata Prima, BharatBenz 2823R).
+- Outputs:
+  - Verified Scope 1 & 3 carbon footprint, propulsion vs reefer fuel split, safety fuel reserve,
+  - Modal savings metrics, and audit-grade downloadable PDF certificate (esgCertificatePdf.js).
+
+================================================================================
+6.5.7. MASTER MATRIX: SUMMARY OF ALL ML/AI MODELS, DATA USED & OUTPUTS
+================================================================================
+
++-----------------------+------------------------+-------------------------------+------------------------------+---------------------------+---------------------------------+
+| Model Name            | Category / Type        | Input Features & Telemetry    | Underlying Data & Corridors  | Primary Outputs           | Autonomous Action / Trigger     |
++-----------------------+------------------------+-------------------------------+------------------------------+---------------------------+---------------------------------+
+| 1. Predictive Temp    | Sliding-Window Linear  | • 30-sample rolling temp      | • Indian highway corridor    | • Minutes-to-breach       | • Silent haptic driver alert    |
+|    Guardian           | Regression & Horizon   | • Base setpoint (T_base)      |   heat indices (38-44 °C)    | • Dynamic breath rate     | • Visual map breathing pulse    |
+|                       | Estimator              | • Compressor failure state    | • Thermal degradation curves | • Actionable advice text  | • LivingMap radar acceleration  |
+|                       |                        | • Telemetry slope (dt=4s)     | • Evaporator efficiency logs | • Silent alert flag       |   from 0.9 Hz to 2.8 Hz         |
++-----------------------+------------------------+-------------------------------+------------------------------+---------------------------+---------------------------------+
+| 2. Thermodynamic      | Physics-Informed Diff. | • Current temperature         | • Polyurethane panel thermal | • Next-step temperature   | • Autonomous Cargo Thermal      |
+|    Newton Cooling &   | Equations + Closed-Loop| • Target setpoint (T_base)    |   conductance (k=0.024 W/mK) | • Spoilage Risk (0-100%)  |   Defense engages at T > 9.0 °C |
+|    Cargo Regulation   | Autonomous Control     | • Mechanical failure flag     | • Produce respiration heat   | • Vehicle status (OK,     | • Restores temp to setpoint     |
+|                       |                        | • Journey progress %          | • Highway air velocity specs |   WARN, BREACH)           |   without highway diversion     |
++-----------------------+------------------------+-------------------------------+------------------------------+---------------------------+---------------------------------+
+| 3. Cold Chain Soul    | Multi-Criteria Decision| • Current core temperature    | • IoT core probe readings    | • Soul Score (0-100)      | • Issues commemorative Gold     |
+|    Score Engine       | Analysis (MCDA)        | • Temperature delta from base | • Electronic dock sign-offs  | • Ethical Rank Tier       |   Seal in Memory Book           |
+|                       | Ethical Index          | • Handover dock care rating   | • Telematics accelerometer   | • Component breakdown     | • Public token URL generation   |
+|                       |                        | • Driving jerk / smoothness   |   smoothness metrics         | • Narrative certificate   |   for consumer scanning         |
++-----------------------+------------------------+-------------------------------+------------------------------+---------------------------+---------------------------------+
+| 4. Multi-Party        | Root-Cause Causality   | • Sensor slope at failure     | • HACCP & ISO 22000 cold-    | • Liability Docket number | • Generates legal docket        |
+|    Liability          | & Contractual Risk     | • Timestamp of failure        |   chain guidelines           | • Percentage fault split  | • Locks farmer liability at 0%  |
+|    Arbitration        | Apportionment          | • Pre-cooling dock receipt    | • Indian Contract Act rules  | • Itemized claim in INR   | • Submits instant settlement    |
+|                       |                        | • Driver milestone logs       | • Historical cargo claims    | • Audit justification     |   to cargo insurer & shipper    |
++-----------------------+------------------------+-------------------------------+------------------------------+---------------------------+---------------------------------+
+| 5. Bilingual RAG      | Large Language Model   | • Multi-turn chat messages    | • Live SQLite DB tables:     | • Natural language answers| • Dynamically queries SQLite DB |
+|    Conversational AI  | (Groq / OpenAI) with   | • User identity name string   |   vehicles, personnel,       | • Available truck list    | • Persists session identity     |
+|    Assistant          | Dynamic Schema RAG     | • Active session token ID     |   shipments, invoices,       | • Revenue / expense totals| • Switches seamlessly between   |
+|                       |                        | • Language tokens (EN / HI)   |   leaves, pilot requests     | • Personalized greetings  |   English, Hindi, and Hinglish  |
++-----------------------+------------------------+-------------------------------+------------------------------+---------------------------+---------------------------------+
+| 6. Freight Carbon &   | Multi-Modal Decarbon-  | • Corridor distance (km)      | • ISO 14064-1 & GLEC tables  | • Total CO2e (kg & tonnes)| • Computes propulsion vs reefer |
+|    Fuel Emission      | ization & Fuel Split   | • Payload weight (tonnes)     | • Indian commercial diesel   | • Fuel split (prop vs ref)|   auxiliary diesel demand       |
+|    Predictor          | Combustion Model       | • Reefer type (diesel/hybrid) |   price (₹90/L baseline)     | • 10% safety fuel reserve | • Adds 10% safety fuel buffer   |
+|                       |                        | • Modality (road vs rail)     | • Commercial grid emissions  | • Tree offset equivalents | • Renders downloadable audit-   |
+|                       |                        | • Commercial transit speed    | • Vehicle fuel burn curves   | • Modal savings % and INR |   grade PDF certificate         |
++-----------------------+------------------------+-------------------------------+------------------------------+---------------------------+---------------------------------+
+
+
+================================================================================
+7. BACKEND API, DATABASE & SEEDED CREDENTIALS
+================================================================================
+
+--------------------------------------------------------------------------------
+7.1. Default Login Credentials (All Roles)
+--------------------------------------------------------------------------------
+The database is pre-seeded with 11 production-grade accounts across all logistics roles:
+
++--------------------+-------------------------------+--------------+-------------------------+
+| Role Title         | Email Address                 | Password     | Target Redirect View    |
++--------------------+-------------------------------+--------------+-------------------------+
+| Super Admin        | superadmin@freshchain.in      | Super@123    | #demo / #command-center |
+| Chief Admin        | admin@freshchain.in           | Admin@123    | #command-center         |
+| Chief Dispatcher   | dispatcher@freshchain.in      | Dispatcher@123| #command-center        |
+| Truck Manager      | truckmanager@freshchain.in    | Truck@123    | #truck-transport        |
+| Train Manager      | trainmanager@freshchain.in    | Train@123    | #train-transport        |
+| Ocean Manager      | oceanmanager@freshchain.in    | Ocean@123    | #ocean-transport        |
+| Air Cargo Manager  | airmanager@freshchain.in      | Air@123      | #air-transport          |
+| Warehouse Master   | warehousemanager@freshchain.in| Warehouse@123| #warehouse-manager      |
+| Reefer Driver      | driver@freshchain.in          | Driver@123   | #driver-portal          |
+| Smallholder Farmer | farmer@freshchain.in          | Farmer@123   | #farmer-portal          |
+| Cold Vault Tech    | coldstorage@freshchain.in     | Storage@123  | #warehousing            |
++--------------------+-------------------------------+--------------+-------------------------+
+
+--------------------------------------------------------------------------------
+7.2. Database Models & Schema Relationships
+--------------------------------------------------------------------------------
+Managed via SQLAlchemy 2.0 in backend/app/models/:
+- User (users): Accounts, bcrypt hashed passwords, roles, transport mode permissions.
+- Personnel (personnel): Drivers, captains, and guards; licenses, emergency contacts,
+  care ratings, availability status, and emotional stories.
+- Vehicle (vehicles): Fleet assets across all modes; capacity, temperature bands,
+  live coordinates, current temperature, failure flags, and route paths.
+- Shipment (shipments): Active consignments; customer details, cargo name, weight,
+  origin, destination, setpoint, trip expenses, and delivery status.
+- Invoice (invoices): Financial billing records; freight charges, fuel expenses,
+  auxiliary cooling costs, GST, payment status, and payment method.
+- DriverMessage (driver_messages): Priority dispatch orders sent from controllers to drivers.
+- StockItem (stock_items): Perishable warehouse inventory batches with Soul Scores.
+- HandoverMoment (handover_moments): Human handover records; location, quotes, and signatures.
+- MemoryBook (memory_books): Digital commemorative passports with public share tokens.
+- SensorTelemetry (telemetry): Historical IoT sensor logs (temperature, humidity, battery).
+- CustomsDeclaration (customs_declarations): Port and border clearance declarations.
+- WarehousePallet (warehouse_pallets): Cold storage bay pallet slots and temperature zones.
+- IncidentLog (incident_logs): Automated records of temperature breaches and failures.
+- PilotRequest (pilot_requests): 30-day enterprise trial bookings.
+- ChatSession (chat_sessions): Multi-turn session context and extracted user names.
+- ChatMessageRecord (chat_messages): Persistent historical message records.
+- LeaveRecord (leaves): Frontline staff leave applications, relief assignments, and approvals.
+
+--------------------------------------------------------------------------------
+7.3. Complete REST API Endpoints Catalog
+--------------------------------------------------------------------------------
+
+AUTHENTICATION (/api/auth)
+- POST /api/auth/register : Register new user account.
+- POST /api/auth/login : Authenticate and receive JWT access + refresh tokens.
+- POST /api/auth/refresh : Refresh expired access token.
+- GET  /api/auth/me : Retrieve authenticated user profile.
+- POST /api/auth/change-password : Change account password.
+
+FLEET MANAGEMENT (/api/fleet)
+- GET    /api/fleet : List all vehicles (supports filtering by mode, status, search).
+- POST   /api/fleet : Register new vehicle asset.
+- GET    /api/fleet/{id} : Get detailed vehicle telemetry and setpoints.
+- PUT    /api/fleet/{id} : Update vehicle metadata.
+- DELETE /api/fleet/{id} : Soft-delete vehicle from active fleet.
+- POST   /api/fleet/{id}/simulate-failure : Inject refrigeration fault into vehicle.
+- POST   /api/fleet/tick : Advance thermal simulation by one step.
+
+TELEMETRY (/api/telemetry)
+- POST /api/telemetry : Ingest single IoT sensor reading.
+- GET  /api/telemetry/{vehicle_id} : Fetch historical telemetry readings.
+- GET  /api/telemetry/{vehicle_id}/zones : Fetch 3-zone readings for 3D model digital twins.
+
+CHECK-INS & OFFLINE SYNC (/api/checkins)
+- POST /api/checkins : Submit single driver check-in.
+- POST /api/checkins/batch-sync : Ingest batch of offline check-ins preserving original device timestamps.
+- GET  /api/checkins : Fetch check-in logs.
+
+LIABILITY & DISPUTE ARBITRATION (/api/liability)
+- POST /api/liability/generate : Generate automated multi-party liability docket for a breach.
+- GET  /api/liability : List all generated liability dockets.
+- GET  /api/liability/{docket_number} : Retrieve specific liability docket details.
+
+WAREHOUSING WMS (/api/warehouse)
+- GET  /api/warehouse : List cold room pallet slots and inventory.
+- POST /api/warehouse : Add new pallet to cold bay.
+- POST /api/warehouse/advance-status : Advance pallet status (Received -> Stored -> Picked -> Dispatched).
+- POST /api/warehouse/relocate : Relocate pallet to new zone and bay slot.
+
+CUSTOMS CLEARANCE (/api/customs)
+- GET  /api/customs : List customs declarations.
+- POST /api/customs : File new customs declaration.
+- POST /api/customs/flag-inspection : Hold container for physical customs inspection.
+- POST /api/customs/{tracking_number}/advance : Advance clearance milestone.
+
+EXECUTIVE COMMAND & TRANSPORT MODES (/api/modes)
+- GET /api/modes/{mode} : Fetch mode-specific metrics, vehicles, and shipments.
+- GET /api/modes/overview : Fetch complete executive command dashboard data.
+
+PERSONNEL & DRIVERS (/api/personnel)
+- GET   /api/personnel : List drivers, captains, and handlers.
+- POST  /api/personnel : Add new personnel member.
+- GET   /api/personnel/{id} : Retrieve personnel profile and handover history.
+- PATCH /api/personnel/{id}/availability : Update driver availability status.
+
+SHIPMENTS & CONSIGNMENTS (/api/shipments)
+- GET  /api/shipments : List shipments across all modes.
+- POST /api/shipments : Create and assign new shipment consignment.
+- GET  /api/shipments/{id} : Retrieve shipment details.
+- PUT  /api/shipments/{id} : Update shipment status.
+- POST /api/shipments/{id}/expenses : Log trip operating expenses (fuel, tolls, cooling).
+
+INVOICES & FINANCIALS (/api/invoices)
+- GET  /api/invoices : List all customer and carrier invoices.
+- GET  /api/invoices/summary : Fetch financial summaries (revenue, costs, margin).
+- GET  /api/invoices/{id} : View detailed invoice breakdown.
+- POST /api/invoices/{id}/pay : Settle invoice via Bank Wire / UPI.
+
+DRIVER MESSAGING (/api/messages)
+- GET  /api/messages : List messages sent to drivers.
+- POST /api/messages : Dispatch new message to a driver.
+- POST /api/messages/{id}/acknowledge : Acknowledge message from driver cockpit.
+
+COMMEMORATIVE MEMORY BOOK (/api/memory)
+- GET  /api/memory/{token} : Retrieve public Memory Book dossier by share token.
+- POST /api/memory/generate/{stock_id} : Generate new Memory Book for a stock item.
+
+ENTERPRISE PILOT TRIALS (/api/pilot)
+- POST  /api/pilot : Submit 30-day enterprise pilot booking.
+- GET   /api/pilot : List inbound pilot trial requests.
+- PATCH /api/pilot/{id}/status : Update pilot approval status and notes.
+
+CONVERSATIONAL AI GATEWAY (/api/chat)
+- POST /api/chat : Conversational assistant gateway consumed by frontend Chat.jsx.
+
+WEBSOCKET REAL-TIME BROADCAST (/api/ws)
+- WS /api/ws : WebSocket channel broadcasting live simulation ticks and telemetry.
+
+
+================================================================================
+8. HOW TO RUN, TEST, AND DEPLOY LOCALLY
+================================================================================
+
+PREREQUISITES:
+- Node.js 18.0 or newer.
+- Python 3.10 or newer.
+- Git.
+
+--------------------------------------------------------------------------------
+STEP 1: START THE BACKEND API SERVER (FASTAPI)
+--------------------------------------------------------------------------------
+1. Open PowerShell or Command Prompt.
+2. Navigate to the backend directory:
+     cd c:\Users\Hp\Desktop\freshchain-react\backend
+3. Activate the virtual environment:
+     venv\Scripts\activate
+4. (Optional) If running for the first time, install requirements and seed database:
+     pip install -r requirements.txt
+     python seed.py
+5. Start the FastAPI server on port 8000:
+     uvicorn app.main:app --reload --port 8000
+
+The backend will start and display:
+- Live API Base URL: http://localhost:8000
+- Interactive Swagger UI Documentation: http://localhost:8000/docs
+- Alternative ReDoc Documentation: http://localhost:8000/redoc
+
+--------------------------------------------------------------------------------
+STEP 2: START THE FRONTEND DEVELOPMENT SERVER (REACT + VITE)
+--------------------------------------------------------------------------------
+1. Open a second PowerShell or Command Prompt terminal.
+2. Navigate to the project root directory:
+     cd c:\Users\Hp\Desktop\freshchain-react
+3. (Optional) If running for the first time, install frontend dependencies:
+     npm install
+4. Start the Vite development server:
+     npm run dev
+
+The frontend will start and display:
+- Local Web Application URL: http://localhost:5173
+
+--------------------------------------------------------------------------------
+STEP 3: TEST THE INTEGRATION
+--------------------------------------------------------------------------------
+1. Open your browser and go to http://localhost:5173.
+2. Observe the "Central Fleet DB Synced" green indicator in the Services section.
+3. Click "Role Login" (#login) and select "Super Admin" (Super@123).
+4. Verify that you are logged in and can access the Executive Command Center (#command-center).
+5. Open the chat widget ("💬 Ask FreshChain AI") and ask: "Which trucks are available?"
+6. Navigate to #demo, pick a vehicle, click "Simulate failure on selected", and watch
+   the autonomous rerouting and liability docket generation in action!
+
+
+================================================================================
+9. COMPLETE PROJECT FILE TREE & CODE ROSTER
+================================================================================
+Below is an index of every key file in the FreshChain repository and its role:
+
+c:\Users\Hp\Desktop\freshchain-react\
+├── FRESHCHAIN_COMPLETE_PROJECT_GUIDE.txt  <- THIS DEFINITIVE MANUAL
+├── model.txt                              <- DEDICATED AI & MACHINE LEARNING SPECIFICATION
+├── README.md                              <- Quickstart guide for the frontend
+├── index.html                             <- HTML5 application entry point
+├── package.json                           <- Frontend dependencies & scripts
+├── vite.config.js                         <- Vite build configuration
+├── freshchain.db                          <- Local SQLite database (root copy)
+│
+├── public/                                <- Static assets & public media
+│   └── videos/                            <- Looping videos for each service mode
+│
+├── src/                                   <- Frontend React Application Source
+│   ├── main.jsx                           <- React DOM initialization
+│   ├── App.jsx                            <- Hash router, title manager & view switch
+│   ├── index.css                          <- Comprehensive Vanilla CSS design system
+│   │
+│   ├── components/                        <- Modular UI Components
+│   │   ├── Header.jsx                     <- Top nav bar, role badge & session actions
+│   │   ├── Hero.jsx                       <- 3D canvas host & 9-station tab controller
+│   │   ├── Sections.jsx                   <- Landing page sections (Problem, Journey,
+│   │   │                                     Solution, Tracks, FleetTruck, Services,
+│   │   │                                     KeyFigures, Impact, Contact, Footer)
+│   │   ├── Demo.jsx                       <- Live Mission Control sandbox & liability
+│   │   ├── FleetForm.jsx                  <- Add-vehicle form with number validation
+│   │   ├── LoginPage.jsx                  <- Role-based login with quick-switch chips
+│   │   ├── TransportModePage.jsx          <- Multi-modal operational command dashboards
+│   │   ├── DriverPortalPage.jsx           <- Mobile driver cockpit & silent haptic alerts
+│   │   ├── AdminOverviewPage.jsx          <- Executive command center (6 multi-tabs,
+│   │   │                                     check-in banner, door alerts, breakdown dispatch,
+│   │   │                                     carbon calculator & aligned financial chart)
+│   │   ├── ServicePage.jsx                <- Individual service view & 3D search lookup
+│   │   ├── Tracker.jsx                    <- 3D tracker side panel & customs milestone
+│   │   ├── PilotPage.jsx                  <- 30-day enterprise trial booking form
+│   │   ├── LivingMap.jsx                  <- Geographic corridor map with breathing pulse
+│   │   ├── PeopleAndFleets.jsx            <- Frontline heroes directory & handover modal
+│   │   ├── MemoryBookModal.jsx            <- Commemorative customer memory passport
+│   │   ├── AlertCenter.jsx                <- On-screen mobile alert toast notifications
+│   │   ├── Chat.jsx                       <- Floating "Ask FreshChain AI" chat drawer
+│   │   ├── Count.jsx                      <- Smooth number count-up animation helper
+│   │   ├── FarmerPortalPage.jsx           <- Smallholder farmer protection & escrow portal
+│   │   ├── WarehouseManagerPage.jsx       <- Cold storage WMS & multi-zone vault monitoring
+│   │   ├── LeaveManagementPage.jsx        <- Centralized role-segregated leave management
+│   │   ├── BreakdownAssistancePage.jsx    <- Driver roadside emergency SOS & dispatch
+│   │   └── ImpactDashboard.jsx            <- Sustainability, food waste & ESG metrics
+│   │
+│   ├── lib/                               <- Business Logic, APIs & Data Catalogs
+│   │   ├── api.js                         <- Unified REST client connecting to FastAPI
+│   │   ├── chat.js                        <- AI assistant client adapter
+│   │   ├── alertStore.js                  <- Toast notification pub/sub store
+│   │   ├── doorAlertStore.js              <- Reefer door breach alarms & turbo-chill override
+│   │   ├── leaveStore.js                  <- Centralized reactive leave management store
+│   │   ├── fleet.js                       <- Vehicle definitions, number rules, validation
+│   │   ├── fleetStore.js                  <- Client-side simulation, telemetry & reroute
+│   │   ├── products.js                    <- Catalogue of perishables with safe temps
+│   │   ├── productList.js                 <- Autocomplete product names for search bars
+│   │   ├── services.js                    <- Copy, settings, videos, and journey text
+│   │   ├── gallerySvg.js                  <- Artistic illustrated SVG scenes
+│   │   └── esgCertificatePdf.js           <- ISO 14064 & GLEC audit-grade PDF generator
+│   │
+│   ├── three/                             <- Three.js 3D WebGL Digital Twin Engines
+│   │   ├── hero.js                        <- Isometric 3D world with 9 camera targets
+│   │   ├── engine.js                      <- Interactive vehicle tracker (X-ray cutaways)
+│   │   └── models.js                      <- 3D parametric models (truck, train, ship, etc.)
+│   │
+│   └── hooks/                             <- Custom React Hooks
+│       ├── useFleet.js                    <- Subscribes to live fleet store state
+│       ├── useScrolled.js                 <- Tracks scroll position & reduced-motion
+│       └── useTrackerSim.js               <- 3-zone temperature simulation for trackers
+│
+└── backend/                               <- Production FastAPI Backend API
+    ├── README.md                          <- Backend architecture and setup documentation
+    ├── requirements.txt                   <- Python locked dependencies
+    ├── freshchain.db                      <- Active SQLite database file
+    ├── seed.py                            <- Comprehensive database seeder (11 accounts,
+    │                                         vehicles, shipments, invoices, personnel)
+    │
+    └── app/                               <- Backend Application Core
+        ├── main.py                        <- FastAPI entry, lifespan, CORS, background worker
+        ├── core/
+        │   ├── config.py                  <- Environment settings (Pydantic Settings)
+        │   ├── security.py                <- JWT generation, verification & bcrypt hashing
+        │   ├── database.py                <- SQLAlchemy 2.0 Engine, Base & SessionLocal
+        │   ├── deps.py                    <- Auth dependencies & DB session injection
+        │   └── websockets.py              <- WebSocket manager for live broadcasts
+        ├── models/                        <- SQLAlchemy 2.0 Declarative ORM Models
+        │   ├── user.py, fleet.py, shipment.py, invoice.py, message.py, stock.py,
+        │   ├── handover.py, memory.py, telemetry.py, customs.py, warehouse.py,
+        │   ├── incident.py, liability.py, pilot.py, personnel.py, chat.py, leave.py
+        ├── schemas/                       <- Pydantic v2 Request/Response Validation Contracts
+        ├── routers/                       <- Modular REST API Route Handlers (20 routers)
+        ├── services/                      <- Simulation, Guardian & AI Heuristic Services
+        │   ├── guardian_service.py        <- Predictive temperature slope & breach horizon
+        │   ├── simulation_service.py      <- Thermodynamic physics & autonomous cargo defense
+        │   ├── soul_score_service.py      <- Cold chain soul score ethical index engine
+        │   └── chat_service.py            <- Bilingual Groq LLM + dynamic schema RAG
+        └── utils/                         <- Standardized response envelopes & logging
+
+================================================================================
+10. CHANGELOG & RECENT SYSTEM UPGRADES (VERSION 2.0.0 TO 2.2.0)
+================================================================================
+Below is the definitive summary of recent architectural, operational, and user
+interface upgrades engineered across the FreshChain platform:
+
+1. CENTRALIZED ROLE-SEGREGATED LEAVE MANAGEMENT SYSTEM:
+   - File: src/components/LeaveManagementPage.jsx and src/lib/leaveStore.js
+   - Problem Addressed: Previously, the leave portal on the warehouse manager page
+     displayed train pilot leaves instead of warehouse staff leaves.
+   - Solution Implemented:
+     * Developed a centralized reactive store (leaveStore.js) using custom pub/sub
+       and localStorage persistence.
+     * Introduced strict role-based filtering: When accessed as Warehouse Manager,
+       the view renders exclusively warehouse staff leaves. When accessed as Train
+       Manager, it displays train pilots. Drivers view their own applications, while
+       Super Admins review the unified company ledger.
+     * Engineered a clean, professional application modal with proper spacing,
+       date range pickers, leave type categories (Sick, Casual, Emergency), relief
+       assignments, and an intuitive circular close button with hover effects.
+     * Integrated live Super Admin approval/rejection actions that instantly sync
+       to the personnel directory in AdminOverviewPage.jsx.
+
+2. DRIVER TELEMETRY CHECK-IN SYSTEM & EXECUTIVE NOTIFICATION BANNER:
+   - Files: src/components/DriverPortalPage.jsx, src/components/AdminOverviewPage.jsx,
+     and backend/app/routers/telemetry.py
+   - Upgraded mobile driver cockpit with 10 one-tap physical inspection milestones
+     (Seal Verified, Pre-cooling Check, Cargo Temp Check, Handover Completed).
+   - Ingests check-ins via /api/checkins with offline queue fallback.
+   - Added a real-time Driver Check-in Alert Banner at the top of the Executive
+     Command Center (#command-center), notifying controllers of incoming check-ins
+     with a single-tap "Review & Dismiss" action.
+
+3. EMERGENCY REEFER DOOR OPEN BREACH ALARMS & TURBO-CHILL OVERRIDE:
+   - Files: src/lib/doorAlertStore.js, src/components/AdminOverviewPage.jsx
+   - Simulates real-time cargo door micro-switch sensors detecting unauthorized or
+     prolonged door openings on highways.
+   - Alerts dispatchers immediately when temperature starts climbing.
+   - Added a "Remote Auxiliary Turbo-Chill" override action in the Executive Command
+     Center, allowing controllers to remotely command the reefer unit to boost
+     secondary evaporator fans to protect cargo without waiting for the driver.
+
+4. DRIVER ROADSIDE BREAKDOWN ASSISTANCE SOS:
+   - Files: src/components/BreakdownAssistancePage.jsx (#breakdown),
+     src/components/AdminOverviewPage.jsx
+   - Built a high-urgency SOS portal for drivers stranded by tire punctures, compressor
+     lockups, or highway engine breakdown.
+   - Automatically transmits driver GPS coordinates, vehicle registration, and cargo
+     spoilage countdown timer to dispatchers.
+   - Added an Emergency Breakdown SOS Banner in the Executive Command Center with a
+     one-click "Dispatch Mobile Reefer Rescue Tech" action routing mobile mechanics.
+
+5. 3D DIGITAL TWIN & LOOPING VIDEO MODAL RESTORATION:
+   - Files: src/components/ServicePage.jsx, src/components/Sections.jsx,
+     src/components/App.jsx, src/three/engine.js
+   - Restored and optimized the interactive Three.js 3D Canvas across #road-freight,
+     #rail, and #warehousing with 360-degree rotation, 3-zone floating temperature badges,
+     and X-ray cutaway view.
+   - Restored full-screen looping high-definition video modal demonstrations with
+     refined z-index layering and professional close button styling.
+
+6. FINANCIAL REVENUE VS EXPENSES BAR CHART INDEX & SCALE ALIGNMENT:
+   - File: src/components/AdminOverviewPage.jsx
+   - Problem Addressed: In the financial overview, the bar chart colors did not match
+     the legend index, and Y-axis scale markers were missing.
+   - Solution Implemented:
+     * Aligned the bar chart color palette with the index: Gross Profit bars are now
+       rendered in rich amber-gold (#eab308) exactly matching the legend index badge.
+     * Added calibrated Y-axis scale reference markers (₹25L, ₹13L, ₹0) for quick
+       visual accounting.
+     * Implemented interactive hover tooltips displaying exact rupee values, operating
+       margins, and GST compliance details.
+
+7. SMALLHOLDER FARMER ADVOCACY PORTAL & GUARANTEED ESCROW (#farmer-portal):
+   - File: src/components/FarmerPortalPage.jsx
+   - Integrated zero-deduction payout guarantee indemnifying growers against highway
+     refrigeration breakdowns.
+   - Harvest lot digital receiving stamps and 48-hour automated escrow release clock.
+   - One-click PDF payout docket generation and farm leave filing.
+
+8. MULTI-ZONE COLD STORAGE WMS (#warehouse-manager):
+   - File: src/components/WarehouseManagerPage.jsx
+   - 3-chamber industrial temperature vault monitoring:
+     * Chamber A (Deep Freeze -18.0 °C to -22.0 °C)
+     * Chamber B (Chilled Produce 2.0 °C to 4.0 °C)
+     * Chamber C (Controlled Atmosphere Pharma/Dairy 6.0 °C to 8.0 °C)
+   - Dynamic barcode intake modal and 4-stage pallet progression pipeline.
+
+9. ISO 14064 & GLEC COMPLIANT ESG PDF EXPORT:
+   - File: src/lib/esgCertificatePdf.js
+   - Generates official Certificate of Emissions & Fuel Audit in PDF format with
+     cryptographic ledger hash, double emerald borders, gold corner insignias, and
+     breakdown of engine propulsion vs reefer chiller fuel with +10% safety reserve.
+
+================================================================================
+                         END OF PROJECT DOCUMENTATION
+================================================================================
