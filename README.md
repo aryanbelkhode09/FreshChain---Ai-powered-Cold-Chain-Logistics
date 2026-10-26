@@ -13,39 +13,51 @@ Needs Node 18 or newer. All data is simulated (no backend, nothing is sent anywh
 
 ## Where things live
 
-    src/
-      App.jsx                 page router (hash links: #road-freight, #rail, #air-cargo,
-                              #ocean-freight, #warehousing, #customs, #pilot) + scroll restore
-      index.css               all styles (light and dark mode via prefers-color-scheme)
-      components/
-        Header, Hero            3D journey scene with station tabs (temperature badges on the 3D models)
-        Sections.jsx            Problem, Journey (interactive), Solution, Tracks, FleetTruck,
-                                Services (shows each service's fleet), Gallery, KeyFigures, Impact, Contact, Footer
-        Demo.jsx                mission control: fleet, map, failure test, offline queue, liability docket;
-                                click the status tag of the selected vehicle to deselect it
-        FleetForm.jsx           add-vehicle form; the number asked for changes with the vehicle type;
-                                optional alert mobile number (default "+91 ", 8 to 15 digits)
-        ServicePage.jsx         video hero, search by number or by product + quantity, fleet panel, 3D tracker
-        Tracker.jsx             side panel: zone temperatures, warehouse pallet status, customs timeline
-        PilotPage.jsx           booking form with inline validation
-        AlertCenter.jsx         on-screen toast "Alert for <phone>" (auto-hides after 30 s)
-        Chat.jsx                floating "Ask FreshChain AI" button and chat panel
-        Count.jsx               count-up numbers
-      lib/
-        fleet.js                vehicle types, sample fleet, per-type number rules and validation, simulated ETA
-        fleetStore.js           shared fleet + simulation (temperatures, anomaly prediction, rerouting,
-                                ETA delay of 40 min on failure, on-screen phone alerts)
-        alertStore.js           state of the on-screen phone alert toast
-        chat.js                 askAI(messages, systemPrompt): POSTs to VITE_CHAT_URL
-        products.js             product catalogue: every product has its own colours, icon, safe temperature and 3D shape
-        services.js             service copy, tracker settings, journey text
-        gallerySvg.js           the four illustrated gallery scenes
-      three/
-        hero.js                 isometric 3D world on the home page (plain three.js)
-        models.js               truck, train, aircraft, ship, warehouse and the product shapes inside the crates
-        engine.js               tracker renderer (X-ray view, temperature badges, pallet marker)
-      hooks/                    useFleet (store), useTrackerSim (zone simulation), useScrolled
-    public/videos/              one looping video per service (replace the files, keep the names)
+ # FreshChain — AI-Powered Cold Chain Logistics
+
+A web-based cold-chain logistics project designed to support shipment visibility and the management of temperature-sensitive goods.
+
+## Overview
+
+FreshChain brings together logistics workflows, shipment tracking, and AI-powered conversational assistance in one application.
+
+## Key Features
+
+- Shipment tracking and logistics workflow management
+- Role-based interfaces for supported supply-chain users
+- AI-powered chatbot using the Groq API
+- Shipment and temperature-risk information, where implemented
+- React-based user interface
+
+## Technology Stack
+
+| Component | Technology |
+| Backend | Python, FastAPI |
+| Frontend | React, Vite, JavaScript |
+| AI Chatbot | Groq API |
+| Database | Add the database actually used |
+
+## Getting Started
+
+1. Clone this repository.
+2. Install the backend dependencies using the provided requirements file.
+3. Configure the required environment variables in a local `.env` file.
+4. Start the FastAPI backend.
+5. Install frontend dependencies and start the Vite development server.
+
+Refer to the backend and frontend folders for the exact setup commands.
+
+## Project Screenshots
+
+<img width="1900" height="963" alt="image" src="https://github.com/user-attachments/assets/da26e763-aee0-4a8c-95c9-b9b8f6ded139" />
+
+
+## Future Improvements
+
+- Enhanced shipment monitoring
+- Improved logistics analytics
+- Additional automated risk-detection capabilities
+
 
 ## Notes
 
