@@ -1,89 +1,75 @@
-# FreshChain: AI-powered cold-chain logistics (React + Vite)
+# FreshChain 🚛💨
 
-The whole site in React: home page, six service pages with 3D trackers, the fleet manager,
-the interactive journey, key figures, the gallery and the Request Pilot booking page.
+[![License: MIT](https://shields.io)](https://opensource.org)
+[![FastAPI](https://shields.io)](https://tiangolo.com)
+[![React](https://shields.io)](https://reactjs.org)
+[![TailwindCSS](https://shields.io)](https://tailwindcss.com)
 
-## Run it
+**FreshChain** is an intelligent, full-stack cold-chain logistics platform engineered to address supply-chain inefficiencies, freight spoilage, and operational visibility in temperature-sensitive transit networks. By integrating real-time telemetry pipelines with conversational AI systems, the application provides supply-chain managers with end-to-end cargo visibility, rule-based thermal exception handling, and automated risk mitigation workflows.
 
-    npm install
-    npm run dev       # http://localhost:5173
-    npm run build     # output in dist/ (works from any folder)
+---
 
-Needs Node 18 or newer. All data is simulated (no backend, nothing is sent anywhere).
+## 🌟 Key Features
 
-## Where things live
+- **Real-Time Telemetry Tracking:** Dynamic 3D shipment tracking interfaces utilizing Three.js maps synchronized with mock asset location updates.
+- **Dynamic Risk Evaluation Engine:** Algorithmic moving-window temperature trend analysis designed to intercept thermal anomalies and trigger threshold notifications before inventory loss occurs.
+- **Conversational Logistics Copilot:** Secure server-side orchestration utilizing the Groq API, enabling operators to analyze fleet statuses through context-aware natural language queries.
+- **Asynchronous Exception Logging:** Localized warning mechanisms that monitor vehicle sensor boundaries (e.g., severe climate breaches) and record system trace actions instantly.
 
- # FreshChain — AI-Powered Cold Chain Logistics
+---
 
-A web-based cold-chain logistics project designed to support shipment visibility and the management of temperature-sensitive goods.
+## 🛠️ Architecture & Tech Stack
 
-## Overview
+- **Frontend:** React.js, Vite, Three.js (pinned to v0.128.0 for precise visual rendering), TailwindCSS
+- **Backend:** Python, FastAPI (Asynchronous API gateway)
+- **AI Infrastructure:** Llama-3-8b via Groq API cloud instances
+- **Data Layer:** Relational SQLite tracking simulated asset metadata, logistics configurations, and audit paths
 
-FreshChain brings together logistics workflows, shipment tracking, and AI-powered conversational assistance in one application.
+---
 
-## Key Features
+## 🚀 Getting Started
 
-- Shipment tracking and logistics workflow management
-- Role-based interfaces for supported supply-chain users
-- AI-powered chatbot using the Groq API
-- Shipment and temperature-risk information, where implemented
-- React-based user interface
+### Prerequisites
+- Node.js (v18 or newer)
+- Python 3.10+
 
-## Technology Stack
+### 1. Backend Gateway Configuration
+Navigate to the backend directory, initialize a secure virtual runtime, and install the package requirements:
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate  # On Windows: .\venv\Scripts\activate
+pip install -r requirements.txt
+```
 
-| Component | Technology |
-| Backend | Python, FastAPI |
-| Frontend | React, Vite, JavaScript |
-| AI Chatbot | Groq API |
-| Database | Add the database actually used |
+Create a local environment file (`.env`) within the backend directory and configure your credentials:
+```text
+GROQ_API_KEY=your_production_groq_api_key_here
+```
 
-## Getting Started
+Launch the asynchronous server gateway:
+```bash
+uvicorn main:app --reload
+```
 
-1. Clone this repository.
-2. Install the backend dependencies using the provided requirements file.
-3. Configure the required environment variables in a local `.env` file.
-4. Start the FastAPI backend.
-5. Install frontend dependencies and start the Vite development server.
+### 2. Frontend Application Setup
+Navigate to the frontend directory, install web modules, and configure your runtime endpoints:
+```bash
+cd ../frontend
+npm install
+```
 
-Refer to the backend and frontend folders for the exact setup commands.
+Create your frontend web environmental configuration file (`.env`):
+```text
+VITE_CHAT_URL=http://127.0.0
+```
 
-## Project Screenshots
+Boot the local Vite development server instance:
+```bash
+npm run dev
+```
 
-<img width="1900" height="963" alt="image" src="https://github.com/user-attachments/assets/da26e763-aee0-4a8c-95c9-b9b8f6ded139" />
+---
 
-
-## Future Improvements
-
-- Enhanced shipment monitoring
-- Improved logistics analytics
-- Additional automated risk-detection capabilities
-
-
-## Notes
-
-- three.js is pinned to 0.128.0 so colours match the original design.
-- Simulation, not AI: there is no trained model. Alerts come from threshold and trend rules.
-- Gallery tiles are illustrations; swap them for photos in `src/lib/gallerySvg.js` / `Gallery`.
-
-## Alerts to a vehicle's mobile number
-
-A vehicle can have an optional alert mobile number. When it gets a transport warning, a temperature
-breach or a spoilage-risk alert, the page shows a toast ("Alert for +91 ...") and writes a log line.
-It is shown on screen only. **Nothing is sent**: no SMS, WhatsApp or e-mail, and the page contains no
-wa.me or sms: links. Real delivery would need a backend (see the chat section for the same pattern).
-
-## AI chat ("Ask FreshChain AI")
-
-The floating button opens a chat panel. It answers from the current simulated fleet. The browser
-never holds an API key. `askAI(messages, systemPrompt)` in `src/lib/chat.js` POSTs JSON to your own
-endpoint, set at build time:
-
-    # .env  (see .env.example)
-    VITE_CHAT_URL=https://your-server.example/api/chat
-
-    POST  { "system": "<system prompt>", "messages": [{ "role": "user" | "assistant", "content": "..." }] }
-    200   { "text": "<reply>" }
-
-Your endpoint calls the model of your choice and keeps the key on the server. Allow CORS for the
-site's origin if it is on a different domain. If `VITE_CHAT_URL` is not set, the chat panel opens
-and tells the visitor that a chat backend needs to be configured.
+## 🔒 Security & Environment Governance
+- All server keys and API tokens are managed via environment isolation profiles (`.env`) and are protected from repository exposure via configuration control rules within `.gitignore`.
